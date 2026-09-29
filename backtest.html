@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AI Backtester</title>
+
+    <link
+        rel="stylesheet"
+        href="backtest.css"
+    >
+</head>
+
+<body>
+
+<div class="backtest-page">
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+
+    <header class="backtest-header">
+
+        <div>
+            <h1>AI Backtester</h1>
+
+            <p>
+                Historical testing using the same AI engine
+                as the live dashboard.
+            </p>
+        </div>
+
+        <div class="engine-status">
+
+            <span class="status-dot"></span>
+
+            <span id="engineStatus">
+                Checking AI Engine...
+            </span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         CONTROLS
+    ========================================================== -->
+
+    <section class="panel controls-panel">
+
+        <div class="panel-title">
+            <h2>Backtest Controls</h2>
+
+            <p>
+                Historical candles are analyzed one candle at a time.
+                Future candles are used only to determine trade outcome.
+            </p>
+        </div>
+
+
+        <div class="controls-grid">
+
+            <!-- MARKET -->
+
+            <div class="control-group">
+
+                <label for="market">
+                    Market
+                </label>
+
+                <select id="market">
+
+                    <option value="XAUUSD">
+                        Gold — XAUUSD
+                    </option>
+
+                    <option value="USTEC">
+                        Nasdaq — USTEC
+                    </option>
+
+                    <option value="BTCUSD">
+                        Bitcoin — BTCUSD
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TIMEFRAME -->
+
+            <div class="control-group">
+
+                <label for="timeframe">
+                    Timeframe
+                </label>
+
+                <select id="timeframe">
+
+                    <option value="5m">
+                        5 Minutes
+                    </option>
+
+                    <option value="15m">
+                        15 Minutes
+                    </option>
+
+                    <option value="1h">
+                        1 Hour
+                    </option>
+
+                    <option value="4h">
+                        4 Hours
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- CANDLES -->
+
+            <div class="control-group">
+
+                <label for="candles">
+                    Historical Candles
+                </label>
+
+                <input
+                    id="candles"
+                    type="number"
+                    min="100"
+                    max="10000"
+                    value="1000"
+                >
+
+            </div>
+
+
+            <!-- WARMUP -->
+
+            <div class="control-group">
+
+                <label for="warmup">
+                    Warmup Candles
+                </label>
+
+                <input
+                    id="warmup"
+                    type="number"
+                    min="20"
+                    max="1000"
+                    value="80"
+                >
+
+            </div>
+
+
+            <!-- FORWARD BARS -->
+
+            <div class="control-group">
+
+                <label for="forwardBars">
+                    Forward Bars
+                </label>
+
+                <input
+                    id="forwardBars"
+                    type="number"
+                    min="1"
+                    max="500"
+                    value="40"
+                >
+
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="control-actions">
+
+            <button
+                id="runBacktest"
+                class="primary-btn"
+                type="button"
+            >
+                Run Backtest
+            </button>
+
+
+            <button
+                id="stopBacktest"
+                class="secondary-btn"
+                type="button"
+                disabled
+            >
+                Stop
+            </button>
+
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="progress-area">
+
+            <div class="progress-header">
+
+                <span id="status">
+                    Ready.
+                </span>
+
+                <span id="progress">
+                    0%
+                </span>
+
+            </div>
+
+
+            <div class="progress-track">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar"
+                    style="width: 0%;"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PERFORMANCE STATS
+    ========================================================== -->
+
+    <section class="stats-grid">
+
+
+        <!-- TOTAL SIGNALS -->
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Total A+ Signals
+            </span>
+
+            <strong id="totalTrades">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- WINS -->
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Wins
+            </span>
+
+            <strong id="wins">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- LOSSES -->
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Losses
+            </span>
+
+            <strong id="losses">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- EXPIRED -->
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Expired
+            </span>
+
+            <strong id="breakeven">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- WIN RATE -->
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Win Rate
+            </span>
+
+            <strong id="winRate">
+                0%
+            </strong>
+
+        </div>
+
+
+        <!-- NET R -->
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Net R
+            </span>
+
+            <strong id="netR">
+                0R
+            </strong>
+
+        </div>
+
+
+        <!-- PROFIT FACTOR -->
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Profit Factor
+            </span>
+
+            <strong id="profitFactor">
+                0
+            </strong>
+
+        </div>
+
+
+        <!-- MAX DD -->
+
+        <div class="stat-card">
+
+            <span class="stat-label">
+                Max Drawdown
+            </span>
+
+            <strong id="maxDD">
+                0R
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         SUMMARY
+    ========================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            <h2>Backtest Summary</h2>
+
+        </div>
+
+
+        <div class="summary-grid">
+
+
+            <div class="summary-item">
+
+                <span>
+                    Market
+                </span>
+
+                <strong id="summaryMarket">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>
+                    Timeframe
+                </span>
+
+                <strong id="summaryTimeframe">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>
+                    Historical Candles
+                </span>
+
+                <strong id="summaryCandles">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>
+                    A+ Signals
+                </span>
+
+                <strong id="summarySignals">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>
+                    Market Regime
+                </span>
+
+                <strong id="summaryRegime">
+                    —
+                </strong>
+
+            </div>
+
+
+            <div class="summary-item">
+
+                <span>
+                    AI Engine
+                </span>
+
+                <strong id="summaryEngine">
+                    —
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         AI CONSISTENCY
+    ========================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            <h2>
+                AI Consistency Test
+            </h2>
+
+            <p>
+                Confirms that historical decisions use the same
+                AI engine without future-candle leakage.
+            </p>
+
+        </div>
+
+
+        <div
+            id="consistencyResults"
+            class="consistency-results"
+        >
+            Waiting for backtest...
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         EQUITY CURVE
+    ========================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            <h2>
+                Equity Curve
+            </h2>
+
+        </div>
+
+
+        <div class="chart-container">
+
+            <canvas
+                id="equityCurve"
+            ></canvas>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         STRATEGY PERFORMANCE
+    ========================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            <h2>
+                Strategy Performance
+            </h2>
+
+            <p>
+                Performance is calculated only from historical
+                A+ signals generated by the AI engine.
+            </p>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Strategy
+                        </th>
+
+                        <th>
+                            Trades
+                        </th>
+
+                        <th>
+                            Wins
+                        </th>
+
+                        <th>
+                            Losses
+                        </th>
+
+                        <th>
+                            Win Rate
+                        </th>
+
+                        <th>
+                            Net R
+                        </th>
+
+                        <th>
+                            Expired / Open
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="strategyBody">
+
+                    <tr>
+
+                        <td colspan="7">
+                            No backtest results yet.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         TRADE LOG
+    ========================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            <h2>
+                Trade Log
+            </h2>
+
+            <p>
+                WIN = target reached.
+                LOSS = stop reached.
+                EXPIRED = neither target nor stop reached
+                within the forward-bar window.
+                OPEN = dataset ended before the trade resolved.
+            </p>
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            ID
+                        </th>
+
+                        <th>
+                            Time
+                        </th>
+
+                        <th>
+                            Direction
+                        </th>
+
+                        <th>
+                            Entry
+                        </th>
+
+                        <th>
+                            Stop
+                        </th>
+
+                        <th>
+                            Target
+                        </th>
+
+                        <th>
+                            Score
+                        </th>
+
+                        <th>
+                            Confirmations
+                        </th>
+
+                        <th>
+                            R:R
+                        </th>
+
+                        <th>
+                            Strategy
+                        </th>
+
+                        <th>
+                            Outcome
+                        </th>
+
+                        <th>
+                            R
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="tradeLogBody">
+
+                    <tr>
+
+                        <td colspan="12">
+                            No trades yet.
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         DIAGNOSTICS
+    ========================================================== -->
+
+    <section class="panel">
+
+        <div class="panel-title">
+
+            <h2>
+                Diagnostics
+            </h2>
+
+        </div>
+
+
+        <pre
+            id="diagnostics"
+            class="diagnostics"
+        >Waiting for backtest...</pre>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONSOLE
+    ========================================================== -->
+
+    <section class="panel">
+
+        <div class="console-header">
+
+            <div>
+
+                <h2>
+                    Backtest Console
+                </h2>
+
+            </div>
+
+
+            <button
+                id="clearConsole"
+                class="secondary-btn"
+                type="button"
+            >
+                Clear
+            </button>
+
+        </div>
+
+
+        <pre
+            id="console"
+            class="console"
+        ></pre>
+
+    </section>
+
+</div>
+
+
+<!-- =========================================================
+     AI ENGINE
+========================================================== -->
+
+<script src="ai-engine.js"></script>
+
+
+<!-- =========================================================
+     BACKTEST ENGINE
+========================================================== -->
+
+<script src="backtest.js"></script>
+
+
+<!-- =========================================================
+     PAGE INITIALIZATION
+========================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const engineStatus =
+            document.getElementById("engineStatus");
+
+        const summaryEngine =
+            document.getElementById("summaryEngine");
+
+
+        if (
+            window.AIEngine &&
+            typeof window.AIEngine.analyze === "function"
+        ) {
+
+            engineStatus.textContent =
+                "AI Engine Ready";
+
+            if (summaryEngine) {
+
+                summaryEngine.textContent =
+                    window.AIEngine.VERSION ||
+                    "AI Engine";
+
+            }
+
+        } else {
+
+            engineStatus.textContent =
+                "AI Engine Not Loaded";
+
+            if (summaryEngine) {
+
+                summaryEngine.textContent =
+                    "Not loaded";
+
+            }
+
+        }
+
+    }
+
+);
+
+</script>
+
+</body>
+</html>

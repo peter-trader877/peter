@@ -1,0 +1,2897 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Market Analyst | Market Drivers</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .ai-header {
+            margin-bottom: 25px;
+        }
+
+        .ai-header h1 {
+            margin-bottom: 8px;
+        }
+
+        .ai-subtitle {
+            color: #9ca3af;
+            max-width: 950px;
+            line-height: 1.6;
+        }
+
+        .ai-controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .ai-button {
+            padding: 11px 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .ai-button.primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .ai-button.secondary {
+            background: #374151;
+            color: white;
+        }
+
+        .ai-button:hover {
+            opacity: 0.9;
+        }
+
+        .ai-status {
+            padding: 12px 15px;
+            border-radius: 8px;
+            background: #111827;
+            margin-bottom: 20px;
+        }
+
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .ai-market-card {
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .ai-market-card h2 {
+            margin-top: 0;
+        }
+
+        .ai-market-price {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 8px 0;
+        }
+
+        .ai-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 12px;
+        }
+
+        .ai-tag {
+            background: #1f2937;
+            border-radius: 20px;
+            padding: 5px 9px;
+            font-size: 11px;
+            color: #d1d5db;
+        }
+
+        .ai-section {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid #263244;
+        }
+
+        .ai-section h3 {
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
+
+        .ai-section p {
+            color: #d1d5db;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .ai-summary {
+            margin-top: 25px;
+            background: #111827;
+            border: 1px solid #263244;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .ai-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .ai-summary-card {
+            background: #0b1220;
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .ai-summary-card h3 {
+            margin-top: 0;
+        }
+
+        .confidence {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            background: #374151;
+        }
+
+        .decision-box {
+            margin-top: 20px;
+            padding: 16px;
+            background: #0b1220;
+            border: 1px solid #263244;
+            border-radius: 10px;
+        }
+
+        .decision-box h3 {
+            margin-top: 0;
+        }
+
+        .scenario-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .scenario-box {
+            padding: 14px;
+            border-radius: 9px;
+            background: #0b1220;
+        }
+
+        .raw-output {
+            margin-top: 25px;
+            background: #080d16;
+            border: 1px solid #263244;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .raw-output pre {
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: #cbd5e1;
+            font-size: 12px;
+        }
+
+        @media (max-width: 1000px) {
+
+            .ai-grid,
+            .ai-summary-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .scenario-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="brand">
+        <h2>Market Drivers</h2>
+        <span>Market Intelligence System</span>
+    </div>
+
+    <nav>
+        <a href="index.html">Dashboard</a>
+        <a href="weekly.html">Weekly</a>
+        <a href="daily.html">Daily</a>
+        <a href="scanner.html">Scanner</a>
+        <a href="radar.html">Radar</a>
+        <a href="signals.html">A+ Signals</a>
+        <a href="history.html">History</a>
+        <a href="ai.html" class="active">AI Analyst</a>
+    </nav>
+
+</header>
+
+
+<main class="container">
+
+    <section class="ai-header">
+
+        <h1>Market Drivers Intelligence Engine</h1>
+
+        <p class="ai-subtitle">
+            Free local intelligence engine built around your trading framework:
+            market profile, auction market theory, liquidity, market structure,
+            compression, expansion and cross-market relationships. No paid AI
+            API is required.
+        </p>
+
+    </section>
+
+
+    <section class="ai-controls">
+
+        <button
+            id="run-ai-btn"
+            class="ai-button primary">
+            Run Intelligence Analysis
+        </button>
+
+        <button
+            id="refresh-ai-btn"
+            class="ai-button secondary">
+            Refresh Market Data
+        </button>
+
+    </section>
+
+
+    <div
+        id="ai-status"
+        class="ai-status">
+        Initializing intelligence engine...
+    </div>
+
+
+    <!-- =========================================================
+         MARKET CARDS
+    ========================================================== -->
+
+    <section class="ai-grid">
+
+
+        <!-- GOLD -->
+
+        <article class="ai-market-card">
+
+            <h2>Gold</h2>
+
+            <div
+                id="ai-gold-price"
+                class="ai-market-price">
+                --
+            </div>
+
+            <div>
+                Change:
+                <strong id="ai-gold-change">--</strong>
+            </div>
+
+            <div class="ai-tags">
+
+                <span
+                    id="ai-gold-direction"
+                    class="ai-tag">
+                    Direction: --
+                </span>
+
+                <span
+                    id="ai-gold-structure-tag"
+                    class="ai-tag">
+                    Structure: --
+                </span>
+
+                <span
+                    id="ai-gold-condition"
+                    class="ai-tag">
+                    Condition: --
+                </span>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Market Context</h3>
+
+                <p id="ai-gold-context">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Market Profile</h3>
+
+                <p id="ai-gold-profile">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Value Location</h3>
+
+                <p id="ai-gold-value">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Auction</h3>
+
+                <p id="ai-gold-auction">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Liquidity</h3>
+
+                <p id="ai-gold-liquidity">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Structure</h3>
+
+                <p id="ai-gold-structure">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Expansion / Compression</h3>
+
+                <p id="ai-gold-expansion">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Bullish Scenario</h3>
+
+                <p id="ai-gold-bullish">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Bearish Scenario</h3>
+
+                <p id="ai-gold-bearish">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Confirmation Required</h3>
+
+                <p id="ai-gold-confirmation">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Invalidation</h3>
+
+                <p id="ai-gold-invalidation">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Risk Condition</h3>
+
+                <p id="ai-gold-risk">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <span
+                    id="ai-gold-confidence"
+                    class="confidence">
+                    Confidence: --
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================================
+             NASDAQ
+        ====================================================== -->
+
+        <article class="ai-market-card">
+
+            <h2>Nasdaq</h2>
+
+            <div
+                id="ai-nasdaq-price"
+                class="ai-market-price">
+                --
+            </div>
+
+            <div>
+                Change:
+                <strong id="ai-nasdaq-change">--</strong>
+            </div>
+
+            <div class="ai-tags">
+
+                <span
+                    id="ai-nasdaq-direction"
+                    class="ai-tag">
+                    Direction: --
+                </span>
+
+                <span
+                    id="ai-nasdaq-structure-tag"
+                    class="ai-tag">
+                    Structure: --
+                </span>
+
+                <span
+                    id="ai-nasdaq-condition"
+                    class="ai-tag">
+                    Condition: --
+                </span>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Market Context</h3>
+
+                <p id="ai-nasdaq-context">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Market Profile</h3>
+
+                <p id="ai-nasdaq-profile">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Value Location</h3>
+
+                <p id="ai-nasdaq-value">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Auction</h3>
+
+                <p id="ai-nasdaq-auction">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Liquidity</h3>
+
+                <p id="ai-nasdaq-liquidity">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Structure</h3>
+
+                <p id="ai-nasdaq-structure">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Expansion / Compression</h3>
+
+                <p id="ai-nasdaq-expansion">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Bullish Scenario</h3>
+
+                <p id="ai-nasdaq-bullish">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Bearish Scenario</h3>
+
+                <p id="ai-nasdaq-bearish">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Confirmation Required</h3>
+
+                <p id="ai-nasdaq-confirmation">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Invalidation</h3>
+
+                <p id="ai-nasdaq-invalidation">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Risk Condition</h3>
+
+                <p id="ai-nasdaq-risk">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <span
+                    id="ai-nasdaq-confidence"
+                    class="confidence">
+                    Confidence: --
+                </span>
+
+            </div>
+
+        </article>
+
+
+        <!-- =====================================================
+             BTC
+        ====================================================== -->
+
+        <article class="ai-market-card">
+
+            <h2>Bitcoin</h2>
+
+            <div
+                id="ai-btc-price"
+                class="ai-market-price">
+                --
+            </div>
+
+            <div>
+                Change:
+                <strong id="ai-btc-change">--</strong>
+            </div>
+
+            <div class="ai-tags">
+
+                <span
+                    id="ai-btc-direction"
+                    class="ai-tag">
+                    Direction: --
+                </span>
+
+                <span
+                    id="ai-btc-structure-tag"
+                    class="ai-tag">
+                    Structure: --
+                </span>
+
+                <span
+                    id="ai-btc-condition"
+                    class="ai-tag">
+                    Condition: --
+                </span>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Market Context</h3>
+
+                <p id="ai-btc-context">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Market Profile</h3>
+
+                <p id="ai-btc-profile">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Value Location</h3>
+
+                <p id="ai-btc-value">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Auction</h3>
+
+                <p id="ai-btc-auction">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Liquidity</h3>
+
+                <p id="ai-btc-liquidity">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Structure</h3>
+
+                <p id="ai-btc-structure">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Expansion / Compression</h3>
+
+                <p id="ai-btc-expansion">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Bullish Scenario</h3>
+
+                <p id="ai-btc-bullish">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Bearish Scenario</h3>
+
+                <p id="ai-btc-bearish">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Confirmation Required</h3>
+
+                <p id="ai-btc-confirmation">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Invalidation</h3>
+
+                <p id="ai-btc-invalidation">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <h3>Risk Condition</h3>
+
+                <p id="ai-btc-risk">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-section">
+
+                <span
+                    id="ai-btc-confidence"
+                    class="confidence">
+                    Confidence: --
+                </span>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <!-- =========================================================
+         CROSS MARKET
+    ========================================================== -->
+
+    <section class="ai-summary">
+
+        <h2>Cross-Market Intelligence</h2>
+
+        <div class="ai-summary-grid">
+
+            <div class="ai-summary-card">
+
+                <h3>Macro Environment</h3>
+
+                <p id="ai-macro">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-summary-card">
+
+                <h3>Cross-Market Relationship</h3>
+
+                <p id="ai-cross-market">
+                    --
+                </p>
+
+            </div>
+
+
+            <div class="ai-summary-card">
+
+                <h3>Expansion Environment</h3>
+
+                <p id="ai-expansion">
+                    --
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="decision-box">
+
+            <h3>Overall Market Environment</h3>
+
+            <p id="ai-overall-environment">
+                --
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         RAW ENGINE
+    ========================================================== -->
+
+    <section class="raw-output">
+
+        <h2>Engine Output</h2>
+
+        <pre id="ai-raw-output">
+No analysis generated yet.
+        </pre>
+
+    </section>
+
+</main>
+
+
+<script src="js/market-data.js"></script>
+<script src="js/scanner.js"></script>
+<script src="js/signals.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+
+(function () {
+
+    "use strict";
+
+
+    /* =========================================================
+       HELPERS
+    ========================================================= */
+
+    function get(id) {
+        return document.getElementById(id);
+    }
+
+
+    function setText(id, value) {
+
+        const el = get(id);
+
+        if (!el) return;
+
+        if (
+            value === undefined ||
+            value === null ||
+            value === ""
+        ) {
+            el.textContent = "--";
+            return;
+        }
+
+        el.textContent = String(value);
+    }
+
+
+    function number(value) {
+
+        const n = Number(value);
+
+        if (!Number.isFinite(n)) {
+            return "--";
+        }
+
+        return n.toLocaleString(
+            undefined,
+            {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }
+        );
+    }
+
+
+    function safeLower(value) {
+
+        if (
+            value === undefined ||
+            value === null
+        ) {
+            return "";
+        }
+
+
+        if (typeof value === "string") {
+            return value.toLowerCase();
+        }
+
+
+        if (typeof value === "object") {
+
+            const values = [
+                value.state,
+                value.status,
+                value.name,
+                value.description,
+                value.direction,
+                value.type
+            ];
+
+
+            for (
+                let i = 0;
+                i < values.length;
+                i++
+            ) {
+
+                if (
+                    typeof values[i] ===
+                    "string"
+                ) {
+
+                    return values[i]
+                        .toLowerCase();
+
+                }
+
+            }
+
+        }
+
+
+        return String(value)
+            .toLowerCase();
+
+    }
+
+
+    /* =========================================================
+       DATA ACCESS
+    ========================================================= */
+
+    function getScannerData(
+        market
+    ) {
+
+        const data =
+            window.MarketDriversData ||
+            {};
+
+
+        if (market === "gold") {
+            return data.goldAnalysis || {};
+        }
+
+
+        if (market === "nasdaq") {
+            return data.nasdaqAnalysis || {};
+        }
+
+
+        if (market === "btc") {
+            return data.btcAnalysis || {};
+        }
+
+
+        return {};
+
+    }
+
+
+    function getMarketData(
+        market
+    ) {
+
+        const data =
+            window.MarketDriversData ||
+            {};
+
+
+        return data[market] || {};
+
+    }
+
+
+    /* =========================================================
+       PROFILE
+    ========================================================= */
+
+    function profileText(
+        analysis
+    ) {
+
+        const profile =
+            analysis.profile ||
+            {};
+
+
+        return (
+            "VAH: " +
+            number(profile.vah) +
+
+            " | POC: " +
+            number(profile.poc) +
+
+            " | VAL: " +
+            number(profile.val) +
+
+            " | Method: " +
+            (
+                profile.method ||
+                "Unknown"
+            )
+        );
+
+    }
+
+
+    /* =========================================================
+       VALUE
+    ========================================================= */
+
+    function valueText(
+        analysis
+    ) {
+
+        const profile =
+            analysis.profile ||
+            {};
+
+
+        return (
+            "Price is currently " +
+            (
+                profile.valueLocation ||
+                "unknown"
+            ) +
+            ". POC position: " +
+            (
+                profile.pocPosition ||
+                "unknown"
+            ) +
+            "."
+        );
+
+    }
+
+
+    /* =========================================================
+       AUCTION
+    ========================================================= */
+
+    function auctionText(
+        analysis
+    ) {
+
+        const auction =
+            analysis.auction ||
+            {};
+
+
+        return (
+            (
+                auction.state ||
+                "Unknown auction state"
+            ) +
+            ". " +
+            (
+                auction.description ||
+                ""
+            )
+        );
+
+    }
+
+
+    /* =========================================================
+       LIQUIDITY
+    ========================================================= */
+
+    function liquidityText(
+        analysis
+    ) {
+
+        const liquidity =
+            analysis.liquidity ||
+            {};
+
+
+        return (
+            (
+                liquidity.state ||
+                "Liquidity condition unknown"
+            ) +
+            ". " +
+            (
+                liquidity.description ||
+                ""
+            ) +
+
+            " Buy-side reference: " +
+            number(
+                liquidity.buySide
+            ) +
+
+            ". Sell-side reference: " +
+            number(
+                liquidity.sellSide
+            ) +
+
+            "."
+        );
+
+    }
+
+
+    /* =========================================================
+       STRUCTURE
+    ========================================================= */
+
+    function structureText(
+        analysis
+    ) {
+
+        const structure =
+            analysis.structure ||
+            {};
+
+
+        return (
+            (
+                structure.state ||
+                "Unknown structure"
+            ) +
+            ". Direction: " +
+            (
+                structure.direction ||
+                "Neutral"
+            ) +
+
+            ". Recent high: " +
+            number(
+                structure.recentHigh
+            ) +
+
+            ". Recent low: " +
+            number(
+                structure.recentLow
+            ) +
+
+            "."
+        );
+
+    }
+
+
+    /* =========================================================
+       EXPANSION
+    ========================================================= */
+
+    function expansionText(
+        analysis
+    ) {
+
+        const expansion =
+            analysis.expansion ||
+            {};
+
+
+        return (
+            (
+                expansion.state ||
+                "Unknown"
+            ) +
+            ". Range ratio: " +
+            number(
+                expansion.ratio
+            ) +
+            ". " +
+            (
+                expansion.description ||
+                ""
+            )
+        );
+
+    }
+
+
+    /* =========================================================
+       MARKET CONTEXT
+    ========================================================= */
+
+    function marketContext(
+        market,
+        analysis
+    ) {
+
+        const profile =
+            analysis.profile ||
+            {};
+
+        const structure =
+            analysis.structure ||
+            {};
+
+        const auction =
+            analysis.auction ||
+            {};
+
+        const expansion =
+            analysis.expansion ||
+            {};
+
+
+        return (
+            market +
+            " is currently " +
+
+            (
+                structure.direction ||
+                "neutral"
+            ) +
+
+            " from the available structural data. " +
+
+            "Price is " +
+
+            (
+                profile.valueLocation ||
+                "at an unknown value location"
+            ) +
+
+            " while the auction is " +
+
+            (
+                auction.state ||
+                "unknown"
+            ) +
+
+            ". The current range condition is " +
+
+            (
+                expansion.state ||
+                "unknown"
+            ) +
+
+            "."
+        );
+
+    }
+
+
+    /* =========================================================
+       BULLISH SCENARIO
+    ========================================================= */
+
+    function bullishScenario(
+        analysis
+    ) {
+
+        const profile =
+            analysis.profile ||
+            {};
+
+        const auction =
+            analysis.auction ||
+            {};
+
+        const liquidity =
+            analysis.liquidity ||
+            {};
+
+        const structure =
+            analysis.structure ||
+            {};
+
+        const expansion =
+            analysis.expansion ||
+            {};
+
+
+        const conditions = [];
+
+
+        if (
+            profile.valueLocation ===
+            "Below value"
+        ) {
+
+            conditions.push(
+                "recover VAL and regain value"
+            );
+
+        }
+        else if (
+            profile.valueLocation ===
+            "Inside value"
+        ) {
+
+            conditions.push(
+                "accept above VAH"
+            );
+
+        }
+        else if (
+            profile.valueLocation ===
+            "Above value"
+        ) {
+
+            conditions.push(
+                "hold acceptance above VAH"
+            );
+
+        }
+
+
+        if (
+            liquidity.sweep &&
+            safeLower(
+                liquidity.sweep
+            ).includes("sell-side")
+        ) {
+
+            conditions.push(
+                "confirm the sell-side sweep"
+            );
+
+        }
+
+
+        if (
+            structure.direction !==
+            "Bullish"
+        ) {
+
+            conditions.push(
+                "confirm bullish market structure"
+            );
+
+        }
+
+
+        if (
+            expansion.state ===
+            "Compression"
+        ) {
+
+            conditions.push(
+                "wait for range expansion"
+            );
+
+        }
+
+
+        if (
+            auction.state ===
+            "Potential Upside Expansion"
+        ) {
+
+            return (
+                "Upside expansion is already developing. " +
+                "Monitor continuation or a controlled retest rather than chasing the expansion."
+            );
+
+        }
+
+
+        return (
+            "Bullish scenario: " +
+            conditions.join(", ") +
+            ". A valid long scenario should require " +
+            "auction acceptance plus lower-timeframe structure confirmation."
+        );
+
+    }
+
+
+    /* =========================================================
+       BEARISH SCENARIO
+    ========================================================= */
+
+    function bearishScenario(
+        analysis
+    ) {
+
+        const profile =
+            analysis.profile ||
+            {};
+
+        const auction =
+            analysis.auction ||
+            {};
+
+        const liquidity =
+            analysis.liquidity ||
+            {};
+
+        const structure =
+            analysis.structure ||
+            {};
+
+        const expansion =
+            analysis.expansion ||
+            {};
+
+
+        const conditions = [];
+
+
+        if (
+            profile.valueLocation ===
+            "Above value"
+        ) {
+
+            conditions.push(
+                "reject VAH and return toward value"
+            );
+
+        }
+        else if (
+            profile.valueLocation ===
+            "Inside value"
+        ) {
+
+            conditions.push(
+                "accept below VAL"
+            );
+
+        }
+        else if (
+            profile.valueLocation ===
+            "Below value"
+        ) {
+
+            conditions.push(
+                "hold acceptance below VAL"
+            );
+
+        }
+
+
+        if (
+            liquidity.sweep &&
+            safeLower(
+                liquidity.sweep
+            ).includes("buy-side")
+        ) {
+
+            conditions.push(
+                "confirm the buy-side sweep"
+            );
+
+        }
+
+
+        if (
+            structure.direction !==
+            "Bearish"
+        ) {
+
+            conditions.push(
+                "confirm bearish market structure"
+            );
+
+        }
+
+
+        if (
+            expansion.state ===
+            "Compression"
+        ) {
+
+            conditions.push(
+                "wait for range expansion"
+            );
+
+        }
+
+
+        if (
+            auction.state ===
+            "Potential Downside Expansion"
+        ) {
+
+            return (
+                "Downside expansion is already developing. " +
+                "Monitor continuation or a controlled retest rather than chasing the move."
+            );
+
+        }
+
+
+        return (
+            "Bearish scenario: " +
+            conditions.join(", ") +
+            ". A valid short scenario should require " +
+            "auction rejection/acceptance plus lower-timeframe structure confirmation."
+        );
+
+    }
+
+
+    /* =========================================================
+       CONFIRMATION
+    ========================================================= */
+
+    function confirmationText(
+        analysis
+    ) {
+
+        const structure =
+            analysis.structure ||
+            {};
+
+        const auction =
+            analysis.auction ||
+            {};
+
+        const liquidity =
+            analysis.liquidity ||
+            {};
+
+        const expansion =
+            analysis.expansion ||
+            {};
+
+
+        const checklist = [];
+
+
+        if (
+            liquidity.sweep &&
+            liquidity.sweep !==
+            "None detected"
+        ) {
+
+            checklist.push(
+                "liquidity event present"
+            );
+
+        }
+        else {
+
+            checklist.push(
+                "wait for liquidity sweep/rejection"
+            );
+
+        }
+
+
+        if (
+            auction.acceptance ||
+            auction.rejection
+        ) {
+
+            checklist.push(
+                "auction confirmation present"
+            );
+
+        }
+        else {
+
+            checklist.push(
+                "wait for auction acceptance/rejection"
+            );
+
+        }
+
+
+        if (
+            structure.direction !==
+            "Neutral"
+        ) {
+
+            checklist.push(
+                "directional structure present"
+            );
+
+        }
+        else {
+
+            checklist.push(
+                "wait for market-structure confirmation"
+            );
+
+        }
+
+
+        if (
+            expansion.expansion
+        ) {
+
+            checklist.push(
+                "expansion active"
+            );
+
+        }
+        else if (
+            expansion.compression
+        ) {
+
+            checklist.push(
+                "compression is present; expansion still required"
+            );
+
+        }
+
+
+        return (
+            checklist.join("; ") +
+            "."
+        );
+
+    }
+
+
+    /* =========================================================
+       INVALIDATION
+    ========================================================= */
+
+    function invalidationText(
+        analysis
+    ) {
+
+        const profile =
+            analysis.profile ||
+            {};
+
+        const structure =
+            analysis.structure ||
+            {};
+
+
+        return (
+            "The scenario is invalidated when price " +
+
+            "accepts beyond the level that should hold " +
+            "the setup, or when the expected market structure " +
+            "fails. Current profile references: " +
+
+            "VAH " +
+            number(profile.vah) +
+
+            ", POC " +
+            number(profile.poc) +
+
+            ", VAL " +
+            number(profile.val) +
+
+            ". Recent structural high: " +
+            number(
+                structure.recentHigh
+            ) +
+
+            ", recent low: " +
+            number(
+                structure.recentLow
+            ) +
+            "."
+        );
+
+    }
+
+
+    /* =========================================================
+       RISK
+    ========================================================= */
+
+    function riskText(
+        analysis
+    ) {
+
+        const profile =
+            analysis.profile ||
+            {};
+
+        const auction =
+            analysis.auction ||
+            {};
+
+        const expansion =
+            analysis.expansion ||
+            {};
+
+
+        if (
+            profile.valueLocation ===
+            "Inside value" &&
+            auction.balance
+        ) {
+
+            return (
+                "Directional risk is elevated while the market is rotating inside value. " +
+                "Avoid forcing a directional entry without a clear liquidity event and confirmation."
+            );
+
+        }
+
+
+        if (
+            expansion.state ===
+            "Expansion"
+        ) {
+
+            return (
+                "Expansion is active. Avoid chasing extended candles. " +
+                "Prefer a structured pullback, retest or lower-timeframe confirmation."
+            );
+
+        }
+
+
+        if (
+            expansion.state ===
+            "Compression"
+        ) {
+
+            return (
+                "Compression is present. The eventual expansion direction is not confirmed. " +
+                "Prepare scenarios rather than predicting the breakout."
+            );
+
+        }
+
+
+        return (
+            "Define invalidation before entry, keep risk fixed and require confirmation."
+        );
+
+    }
+
+
+    /* =========================================================
+       CONFIDENCE
+    ========================================================= */
+
+    function confidence(
+        analysis
+    ) {
+
+        let score = 0;
+
+
+        const profile =
+            analysis.profile;
+
+        const auction =
+            analysis.auction;
+
+        const structure =
+            analysis.structure;
+
+        const liquidity =
+            analysis.liquidity;
+
+        const expansion =
+            analysis.expansion;
+
+
+        if (
+            profile &&
+            profile.vah !== null &&
+            profile.poc !== null &&
+            profile.val !== null
+        ) {
+
+            score += 2;
+
+        }
+
+
+        if (
+            structure &&
+            structure.state !==
+            "Insufficient data"
+        ) {
+
+            score += 1;
+
+        }
+
+
+        if (
+            auction &&
+            auction.state !==
+            "Unknown"
+        ) {
+
+            score += 1;
+
+        }
+
+
+        if (
+            liquidity &&
+            liquidity.state !==
+            "Insufficient data"
+        ) {
+
+            score += 1;
+
+        }
+
+
+        if (
+            expansion &&
+            expansion.state !==
+            "Unknown"
+        ) {
+
+            score += 1;
+
+        }
+
+
+        if (score >= 6) {
+            return "High";
+        }
+
+
+        if (score >= 4) {
+            return "Medium";
+        }
+
+
+        return "Low";
+
+    }
+
+
+    /* =========================================================
+       MARKET RESULT
+    ========================================================= */
+
+    function analyzeMarket(
+        marketName
+    ) {
+
+        const analysis =
+            getScannerData(
+                marketName
+            );
+
+        const market =
+            getMarketData(
+                marketName
+            );
+
+
+        const result = {
+
+            market:
+                marketName,
+
+            price:
+                Number(
+                    market.price ??
+                    analysis.price
+                ),
+
+            change:
+                Number(
+                    market.change
+                ),
+
+            direction:
+                analysis.direction ||
+                "Neutral",
+
+            structure:
+                analysis.structure ||
+                {},
+
+            profile:
+                analysis.profile ||
+                {},
+
+            valueLocation:
+                analysis.valueLocation ||
+                "Unknown",
+
+            auction:
+                analysis.auction ||
+                {},
+
+            liquidity:
+                analysis.liquidity ||
+                {},
+
+            expansion:
+                analysis.expansion ||
+                {},
+
+            condition:
+                analysis.condition ||
+                "Unknown"
+
+        };
+
+
+        result.context =
+            marketContext(
+                marketName,
+                result
+            );
+
+
+        result.bullish =
+            bullishScenario(
+                result
+            );
+
+
+        result.bearish =
+            bearishScenario(
+                result
+            );
+
+
+        result.confirmation =
+            confirmationText(
+                result
+            );
+
+
+        result.invalidation =
+            invalidationText(
+                result
+            );
+
+
+        result.risk =
+            riskText(
+                result
+            );
+
+
+        result.confidence =
+            confidence(
+                result
+            );
+
+
+        return result;
+
+    }
+
+
+    /* =========================================================
+       RENDER MARKET
+    ========================================================= */
+
+    function renderMarket(
+        prefix,
+        result
+    ) {
+
+        setText(
+            "ai-" +
+            prefix +
+            "-price",
+            number(
+                result.price
+            )
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-change",
+            Number.isFinite(
+                result.change
+            )
+                ? number(
+                    result.change
+                ) + "%"
+                : "--"
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-direction",
+            "Direction: " +
+            result.direction
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-structure-tag",
+            "Structure: " +
+            (
+                result.structure.state ||
+                "Unknown"
+            )
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-condition",
+            "Condition: " +
+            result.condition
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-context",
+            result.context
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-profile",
+            profileText(
+                result
+            )
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-value",
+            valueText(
+                result
+            )
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-auction",
+            auctionText(
+                result
+            )
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-liquidity",
+            liquidityText(
+                result
+            )
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-structure",
+            structureText(
+                result
+            )
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-expansion",
+            expansionText(
+                result
+            )
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-bullish",
+            result.bullish
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-bearish",
+            result.bearish
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-confirmation",
+            result.confirmation
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-invalidation",
+            result.invalidation
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-risk",
+            result.risk
+        );
+
+
+        setText(
+            "ai-" +
+            prefix +
+            "-confidence",
+            "Confidence: " +
+            result.confidence
+        );
+
+    }
+
+
+    /* =========================================================
+       CROSS MARKET
+    ========================================================= */
+
+    function crossMarket(
+        gold,
+        nasdaq,
+        btc
+    ) {
+
+        const markets = [
+            gold,
+            nasdaq,
+            btc
+        ];
+
+
+        const bullish =
+            markets.filter(
+                m =>
+                    m.direction ===
+                    "Bullish"
+            );
+
+
+        const bearish =
+            markets.filter(
+                m =>
+                    m.direction ===
+                    "Bearish"
+            );
+
+
+        if (
+            bullish.length === 3
+        ) {
+
+            return (
+                "All three monitored markets are showing bullish structural direction. " +
+                "This is directional alignment, not an entry signal. " +
+                "Each market still requires its own auction and liquidity confirmation."
+            );
+
+        }
+
+
+        if (
+            bearish.length === 3
+        ) {
+
+            return (
+                "All three monitored markets are showing bearish structural direction. " +
+                "This is directional alignment, not an entry signal. " +
+                "Each market still requires its own auction and liquidity confirmation."
+            );
+
+        }
+
+
+        return (
+            "Cross-market structure is mixed. " +
+
+            "Bullish: " +
+            (
+                bullish.length
+                    ? bullish
+                        .map(
+                            m => m.market
+                        )
+                        .join(", ")
+                    : "None"
+            ) +
+
+            ". Bearish: " +
+            (
+                bearish.length
+                    ? bearish
+                        .map(
+                            m => m.market
+                        )
+                        .join(", ")
+                    : "None"
+            ) +
+
+            "."
+        );
+
+    }
+
+
+    /* =========================================================
+       EXPANSION SUMMARY
+    ========================================================= */
+
+    function expansionSummary(
+        results
+    ) {
+
+        const compression =
+            results.filter(
+                r =>
+                    r.expansion.state ===
+                    "Compression"
+            ).length;
+
+
+        const expansion =
+            results.filter(
+                r =>
+                    r.expansion.state ===
+                    "Expansion"
+            ).length;
+
+
+        const balance =
+            results.filter(
+                r =>
+                    safeLower(
+                        r.condition
+                    ).includes(
+                        "balance"
+                    )
+            ).length;
+
+
+        return (
+            expansion +
+            " market(s) in expansion; " +
+
+            compression +
+            " market(s) in compression; " +
+
+            balance +
+            " market(s) showing balance/rotation."
+        );
+
+    }
+
+
+    /* =========================================================
+       OVERALL ENVIRONMENT
+    ========================================================= */
+
+    function overallEnvironment(
+        results
+    ) {
+
+        const expansion =
+            results.filter(
+                r =>
+                    r.expansion.state ===
+                    "Expansion"
+            ).length;
+
+
+        const compression =
+            results.filter(
+                r =>
+                    r.expansion.state ===
+                    "Compression"
+            ).length;
+
+
+        const balanced =
+            results.filter(
+                r =>
+                    r.auction.balance
+            ).length;
+
+
+        if (
+            expansion >= 2
+        ) {
+
+            return (
+                "The monitored markets are showing a broad expansion environment. " +
+                "Focus on acceptance, liquidity and structured continuation rather than chasing."
+            );
+
+        }
+
+
+        if (
+            compression >= 2
+        ) {
+
+            return (
+                "Several markets are compressed. " +
+                "This is an environment for scenario preparation and liquidity mapping before expansion."
+            );
+
+        }
+
+
+        if (
+            balanced >= 2
+        ) {
+
+            return (
+                "Several markets are rotating inside balance/value. " +
+                "The key task is identifying which market leaves value with acceptance."
+            );
+
+        }
+
+
+        return (
+            "Market conditions are mixed. " +
+            "Treat each instrument independently and wait for its own auction and liquidity confirmation."
+        );
+
+    }
+
+
+    /* =========================================================
+       MACRO
+    ========================================================= */
+
+    function macroSummary() {
+
+        const data =
+            window.MarketDriversData ||
+            {};
+
+        const macro =
+            data.macro ||
+            {};
+
+
+        const items = [];
+
+
+        const mappings = [
+            ["DXY", macro.dxy],
+            ["US10Y", macro.us10y],
+            ["US2Y", macro.us2y],
+            ["VIX", macro.vix],
+            ["S&P 500", macro.sp500],
+            ["Oil", macro.oil]
+        ];
+
+
+        mappings.forEach(
+            function (item) {
+
+                const name =
+                    item[0];
+
+                const value =
+                    item[1];
+
+
+                if (
+                    value &&
+                    typeof value ===
+                    "object"
+                ) {
+
+                    const price =
+                        value.price ??
+                        value.value;
+
+                    const change =
+                        value.change;
+
+
+                    if (
+                        price !==
+                        undefined
+                    ) {
+
+                        items.push(
+                            name +
+                            ": " +
+                            number(
+                                price
+                            )
+                        );
+
+                    }
+
+
+                    if (
+                        change !==
+                        undefined
+                    ) {
+
+                        items.push(
+                            "Δ " +
+                            number(
+                                change
+                            ) +
+                            "%"
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        if (
+            !items.length
+        ) {
+
+            return (
+                "Macro feeds are not currently available in MarketDriversData."
+            );
+
+        }
+
+
+        return (
+            "Current macro observations: " +
+            items.join(" | ") +
+            ". These are contextual drivers and should be interpreted alongside price structure."
+        );
+
+    }
+
+
+    /* =========================================================
+       RUN ENGINE
+    ========================================================= */
+
+    function runLocalAI() {
+
+        try {
+
+            setText(
+                "ai-status",
+                "Running advanced local intelligence..."
+            );
+
+
+            const gold =
+                analyzeMarket(
+                    "gold"
+                );
+
+
+            const nasdaq =
+                analyzeMarket(
+                    "nasdaq"
+                );
+
+
+            const btc =
+                analyzeMarket(
+                    "btc"
+                );
+
+
+            const results = [
+                gold,
+                nasdaq,
+                btc
+            ];
+
+
+            renderMarket(
+                "gold",
+                gold
+            );
+
+
+            renderMarket(
+                "nasdaq",
+                nasdaq
+            );
+
+
+            renderMarket(
+                "btc",
+                btc
+            );
+
+
+            setText(
+                "ai-macro",
+                macroSummary()
+            );
+
+
+            setText(
+                "ai-cross-market",
+                crossMarket(
+                    gold,
+                    nasdaq,
+                    btc
+                )
+            );
+
+
+            setText(
+                "ai-expansion",
+                expansionSummary(
+                    results
+                )
+            );
+
+
+            setText(
+                "ai-overall-environment",
+                overallEnvironment(
+                    results
+                )
+            );
+
+
+            const output = {
+
+                engine:
+                    "Market Drivers Advanced Local Intelligence Engine",
+
+                paidAI:
+                    false,
+
+                generatedAt:
+                    new Date()
+                        .toISOString(),
+
+                markets: {
+                    gold,
+                    nasdaq,
+                    btc
+                },
+
+                crossMarket:
+                    crossMarket(
+                        gold,
+                        nasdaq,
+                        btc
+                    ),
+
+                expansionEnvironment:
+                    expansionSummary(
+                        results
+                    ),
+
+                overallEnvironment:
+                    overallEnvironment(
+                        results
+                    )
+
+            };
+
+
+            const raw =
+                get(
+                    "ai-raw-output"
+                );
+
+
+            if (raw) {
+
+                raw.textContent =
+                    JSON.stringify(
+                        output,
+                        null,
+                        2
+                    );
+
+            }
+
+
+            setText(
+                "ai-status",
+                "Advanced intelligence analysis completed."
+            );
+
+
+            return output;
+
+        }
+        catch (error) {
+
+            console.error(
+                "Advanced AI engine error:",
+                error
+            );
+
+
+            setText(
+                "ai-status",
+                "Analysis error: " +
+                error.message
+            );
+
+
+            const raw =
+                get(
+                    "ai-raw-output"
+                );
+
+
+            if (raw) {
+
+                raw.textContent =
+                    error.stack ||
+                    error.message;
+
+            }
+
+
+            return null;
+
+        }
+
+    }
+
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+
+    function setupButtons() {
+
+        const runButton =
+            get(
+                "run-ai-btn"
+            );
+
+
+        const refreshButton =
+            get(
+                "refresh-ai-btn"
+            );
+
+
+        if (runButton) {
+
+            runButton.addEventListener(
+                "click",
+                function () {
+
+                    runLocalAI();
+
+                }
+            );
+
+        }
+
+
+        if (refreshButton) {
+
+            refreshButton.addEventListener(
+                "click",
+                async function () {
+
+                    try {
+
+                        setText(
+                            "ai-status",
+                            "Refreshing live market data and scanner..."
+                        );
+
+
+                        if (
+                            window.MarketDriversAPI &&
+                            typeof window
+                                .MarketDriversAPI
+                                .loadMarketData ===
+                            "function"
+                        ) {
+
+                            await window
+                                .MarketDriversAPI
+                                .loadMarketData();
+
+                        }
+
+
+                        if (
+                            window.MarketDriversScanner &&
+                            typeof window
+                                .MarketDriversScanner
+                                .run ===
+                            "function"
+                        ) {
+
+                            await window
+                                .MarketDriversScanner
+                                .run();
+
+                        }
+
+
+                        runLocalAI();
+
+                    }
+                    catch (error) {
+
+                        console.error(
+                            "Refresh error:",
+                            error
+                        );
+
+
+                        setText(
+                            "ai-status",
+                            "Refresh error: " +
+                            error.message
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+
+    }
+
+
+    /* =========================================================
+       INITIALIZATION
+    ========================================================= */
+
+    function initialize() {
+
+        setupButtons();
+
+
+        setTimeout(
+            function () {
+
+                runLocalAI();
+
+            },
+            3000
+        );
+
+
+        setInterval(
+            function () {
+
+                runLocalAI();
+
+            },
+            5 * 60 * 1000
+        );
+
+    }
+
+
+    window.MarketDriversLocalAI = {
+
+        run:
+            runLocalAI,
+
+        analyzeMarket:
+            analyzeMarket
+
+    };
+
+
+    if (
+        document.readyState ===
+        "loading"
+    ) {
+
+        document.addEventListener(
+            "DOMContentLoaded",
+            initialize
+        );
+
+    }
+    else {
+
+        initialize();
+
+    }
+
+})();
+
+</script>
+
+</body>
+</html>

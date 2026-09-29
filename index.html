@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="AI Market Drivers Dashboard"
+    >
+
+    <title>Market Drivers AI Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+<body>
+
+    <header class="top-header">
+
+        <div class="brand">
+            <h1>MARKET DRIVERS AI</h1>
+
+            <p>
+                Liquidity • Auction Market Theory •
+                Structure • Volume • Macro Drivers
+            </p>
+        </div>
+
+        <div class="header-status">
+
+            <div id="engineStatus">
+                AI Engine: Loading...
+            </div>
+
+            <div id="connectionStatus">
+                Market Data: Connecting...
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="dashboard">
+
+
+        <!-- =====================================================
+             SESSION CLOCKS
+             ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+                <h2>Market Sessions</h2>
+            </div>
+
+            <div
+                id="sessionClocks"
+                class="session-grid"
+            >
+
+                <div class="session-card">
+
+                    <span class="session-name">
+                        Kenya
+                    </span>
+
+                    <strong
+                        id="kenyaTime"
+                    >
+                        --:--
+                    </strong>
+
+                    <small>
+                        EAT / UTC+3
+                    </small>
+
+                </div>
+
+
+                <div class="session-card">
+
+                    <span class="session-name">
+                        UTC
+                    </span>
+
+                    <strong
+                        id="utcTime"
+                    >
+                        --:--
+                    </strong>
+
+                    <small>
+                        UTC
+                    </small>
+
+                </div>
+
+
+                <div class="session-card">
+
+                    <span class="session-name">
+                        Sydney
+                    </span>
+
+                    <strong
+                        id="sydneyTime"
+                    >
+                        --:--
+                    </strong>
+
+                    <small>
+                        Sydney
+                    </small>
+
+                </div>
+
+
+                <div class="session-card">
+
+                    <span class="session-name">
+                        Tokyo
+                    </span>
+
+                    <strong
+                        id="tokyoTime"
+                    >
+                        --:--
+                    </strong>
+
+                    <small>
+                        Tokyo
+                    </small>
+
+                </div>
+
+
+                <div class="session-card">
+
+                    <span class="session-name">
+                        London
+                    </span>
+
+                    <strong
+                        id="londonTime"
+                    >
+                        --:--
+                    </strong>
+
+                    <small>
+                        London
+                    </small>
+
+                </div>
+
+
+                <div class="session-card">
+
+                    <span class="session-name">
+                        New York
+                    </span>
+
+                    <strong
+                        id="newYorkTime"
+                    >
+                        --:--
+                    </strong>
+
+                    <small>
+                        New York
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             LIVE MARKETS
+             ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Live Markets</h2>
+
+                    <p>
+                        Current market conditions used
+                        by the AI analysis engine.
+                    </p>
+                </div>
+
+                <div
+                    id="marketLastUpdated"
+                    class="muted"
+                >
+                    Last update: --
+                </div>
+
+            </div>
+
+
+            <div
+                id="marketCards"
+                class="market-grid"
+            >
+
+                <div class="market-card loading-card">
+                    <div class="market-symbol">
+                        XAUUSD
+                    </div>
+
+                    <div class="market-name">
+                        Gold
+                    </div>
+
+                    <div class="market-price">
+                        Loading...
+                    </div>
+                </div>
+
+
+                <div class="market-card loading-card">
+                    <div class="market-symbol">
+                        USTEC
+                    </div>
+
+                    <div class="market-name">
+                        Nasdaq
+                    </div>
+
+                    <div class="market-price">
+                        Loading...
+                    </div>
+                </div>
+
+
+                <div class="market-card loading-card">
+                    <div class="market-symbol">
+                        BTCUSD
+                    </div>
+
+                    <div class="market-name">
+                        Bitcoin
+                    </div>
+
+                    <div class="market-price">
+                        Loading...
+                    </div>
+                </div>
+
+
+                <div class="market-card loading-card">
+                    <div class="market-symbol">
+                        DXY
+                    </div>
+
+                    <div class="market-name">
+                        US Dollar Index
+                    </div>
+
+                    <div class="market-price">
+                        Loading...
+                    </div>
+                </div>
+
+
+                <div class="market-card loading-card">
+                    <div class="market-symbol">
+                        USOIL
+                    </div>
+
+                    <div class="market-name">
+                        Crude Oil
+                    </div>
+
+                    <div class="market-price">
+                        Loading...
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             AI A+ SETUPS
+             ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>AI A+ Setups</h2>
+
+                    <p>
+                        High-confluence opportunities only.
+                    </p>
+                </div>
+
+                <div
+                    id="aPlusCount"
+                    class="badge"
+                >
+                    0 A+
+                </div>
+
+            </div>
+
+
+            <div
+                id="aiSetups"
+                class="setup-grid"
+            >
+
+                <div class="empty-state">
+
+                    <strong>
+                        WAIT
+                    </strong>
+
+                    <span>
+                        No A+ setup detected yet.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MARKET DRIVER TABLE
+             ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Market Drivers</h2>
+
+                    <p>
+                        Major cross-market variables
+                        affecting Gold, Nasdaq and Bitcoin.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table
+                    id="driversTable"
+                    class="data-table"
+                >
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Driver
+                            </th>
+
+                            <th>
+                                Current
+                            </th>
+
+                            <th>
+                                Previous
+                            </th>
+
+                            <th>
+                                Change
+                            </th>
+
+                            <th>
+                                Impact
+                            </th>
+
+                            <th>
+                                Interpretation
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                DXY
+                            </td>
+
+                            <td
+                                id="driverDxyCurrent"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverDxyPrevious"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverDxyChange"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverDxyImpact"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverDxyInterpretation"
+                            >
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                US 10Y Yield
+                            </td>
+
+                            <td
+                                id="driverYieldCurrent"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverYieldPrevious"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverYieldChange"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverYieldImpact"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverYieldInterpretation"
+                            >
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                US Oil
+                            </td>
+
+                            <td
+                                id="driverOilCurrent"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverOilPrevious"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverOilChange"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverOilImpact"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverOilInterpretation"
+                            >
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Nasdaq
+                            </td>
+
+                            <td
+                                id="driverNasdaqCurrent"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverNasdaqPrevious"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverNasdaqChange"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverNasdaqImpact"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverNasdaqInterpretation"
+                            >
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Bitcoin
+                            </td>
+
+                            <td
+                                id="driverBtcCurrent"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverBtcPrevious"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverBtcChange"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverBtcImpact"
+                            >
+                                --
+                            </td>
+
+                            <td
+                                id="driverBtcInterpretation"
+                            >
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DAILY EVENTS
+             ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Daily Macro Events</h2>
+
+                    <p>
+                        Events that may create volatility
+                        or expansion.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table
+                    id="dailyEventsTable"
+                    class="data-table"
+                >
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Time
+                            </th>
+
+                            <th>
+                                Event
+                            </th>
+
+                            <th>
+                                Currency
+                            </th>
+
+                            <th>
+                                Previous
+                            </th>
+
+                            <th>
+                                Forecast
+                            </th>
+
+                            <th>
+                                Actual
+                            </th>
+
+                            <th>
+                                Impact
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="dailyEventsBody"
+                    >
+
+                        <tr>
+
+                            <td colspan="7">
+                                No events loaded.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             WEEKLY DRIVERS
+             ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Weekly Market Drivers</h2>
+
+                    <p>
+                        Higher-timeframe variables to monitor
+                        before building the weekly map.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table
+                    id="weeklyDriversTable"
+                    class="data-table"
+                >
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Driver
+                            </th>
+
+                            <th>
+                                Previous
+                            </th>
+
+                            <th>
+                                Current
+                            </th>
+
+                            <th>
+                                Direction
+                            </th>
+
+                            <th>
+                                Market Effect
+                            </th>
+
+                            <th>
+                                Notes
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody
+                        id="weeklyDriversBody"
+                    >
+
+                        <tr>
+
+                            <td>
+                                Fed expectations
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                US Dollar
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Treasury Yields
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Global Liquidity
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                --
+                            </td>
+
+                            <td>
+                                Waiting for data...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             AI ANALYSIS
+             ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>AI Market Analysis</h2>
+
+                    <p>
+                        Current market map generated from
+                        structure, liquidity, auction and
+                        volatility conditions.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div
+                id="aiAnalysis"
+                class="analysis-grid"
+            >
+
+                <div class="analysis-card">
+
+                    <h3>
+                        Gold
+                    </h3>
+
+                    <div
+                        id="analysisGold"
+                        class="analysis-content"
+                    >
+                        Waiting for analysis...
+                    </div>
+
+                </div>
+
+
+                <div class="analysis-card">
+
+                    <h3>
+                        Nasdaq
+                    </h3>
+
+                    <div
+                        id="analysisNasdaq"
+                        class="analysis-content"
+                    >
+                        Waiting for analysis...
+                    </div>
+
+                </div>
+
+
+                <div class="analysis-card">
+
+                    <h3>
+                        Bitcoin
+                    </h3>
+
+                    <div
+                        id="analysisBtc"
+                        class="analysis-content"
+                    >
+                        Waiting for analysis...
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SYSTEM LOG
+             ===================================================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>System Log</h2>
+
+                    <p>
+                        Dashboard and AI engine diagnostics.
+                    </p>
+                </div>
+
+                <button
+                    id="clearLog"
+                    class="secondary-button"
+                    type="button"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+
+            <pre
+                id="systemLog"
+                class="system-log"
+            >Dashboard starting...</pre>
+
+        </section>
+<!-- =========================================================
+     AI BACKTESTER
+========================================================= -->
+
+<section id="backtester-section">
+
+    <h2>AI A+ Backtester</h2>
+
+    <div class="warning">
+        Historical backtesting uses the same AI Engine that powers
+        the live A+ scanner. Historical future candles are used only
+        to determine the trade outcome and are never used to create
+        the historical signal.
+    </div>
+
+    <div style="
+        width:100%;
+        overflow:hidden;
+        border:1px solid #334155;
+        border-radius:12px;
+        background:#0f172a;
+    ">
+
+        <iframe
+            src="backtest.html"
+            title="AI A+ Backtester"
+            style="
+                width:100%;
+                min-height:1800px;
+                border:0;
+                display:block;
+                background:#0f172a;
+            "
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         SCRIPTS
+         IMPORTANT:
+         AI ENGINE MUST LOAD BEFORE SCRIPT.JS
+         ========================================================= -->
+
+    <script
+        src="ai-engine.js"
+    ></script>
+
+    <script
+        src="script.js"
+    ></script>
+
+</body>
+</html>

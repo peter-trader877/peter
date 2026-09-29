@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Signal History | Market Drivers</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Market Drivers
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Dashboard
+            </a>
+
+            <a href="weekly.html">
+                Weekly Drivers
+            </a>
+
+            <a href="daily.html">
+                Daily Drivers
+            </a>
+
+            <a href="scanner.html">
+                Live Scanner
+            </a>
+
+            <a href="radar.html">
+                Opportunity Radar
+            </a>
+
+            <a href="signals.html">
+                A+ Signals
+            </a>
+
+            <a href="history.html" class="active">
+                Signal History
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="container">
+
+        <header class="page-header">
+
+            <h1>
+                Signal History & Trade Journal
+            </h1>
+
+            <p>
+                Record your trades, review execution quality and
+                measure performance over time.
+            </p>
+
+        </header>
+
+
+        <!-- =================================================
+             PERFORMANCE OVERVIEW
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Performance Overview
+            </h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+                    <h3>Total Trades</h3>
+                    <strong id="history-total">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Wins</h3>
+                    <strong id="history-wins">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Losses</h3>
+                    <strong id="history-losses">0</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Win Rate</h3>
+                    <strong id="history-winrate">0%</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Total R</h3>
+                    <strong id="history-total-r">0.00</strong>
+                </div>
+
+                <div class="card">
+                    <h3>Average R</h3>
+                    <strong id="history-average-r">0.00</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MARKET BREAKDOWN
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Market Breakdown
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Market</th>
+                            <th>Trades</th>
+                            <th>Wins</th>
+                            <th>Losses</th>
+                            <th>Win Rate</th>
+                            <th>Total R</th>
+                            <th>Average R</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Gold</td>
+
+                            <td id="history-gold-trades">
+                                0
+                            </td>
+
+                            <td id="history-gold-wins">
+                                0
+                            </td>
+
+                            <td id="history-gold-losses">
+                                0
+                            </td>
+
+                            <td id="history-gold-winrate">
+                                0%
+                            </td>
+
+                            <td id="history-gold-r">
+                                0.00
+                            </td>
+
+                            <td id="history-gold-average">
+                                0.00
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Nasdaq</td>
+
+                            <td id="history-nasdaq-trades">
+                                0
+                            </td>
+
+                            <td id="history-nasdaq-wins">
+                                0
+                            </td>
+
+                            <td id="history-nasdaq-losses">
+                                0
+                            </td>
+
+                            <td id="history-nasdaq-winrate">
+                                0%
+                            </td>
+
+                            <td id="history-nasdaq-r">
+                                0.00
+                            </td>
+
+                            <td id="history-nasdaq-average">
+                                0.00
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Bitcoin</td>
+
+                            <td id="history-btc-trades">
+                                0
+                            </td>
+
+                            <td id="history-btc-wins">
+                                0
+                            </td>
+
+                            <td id="history-btc-losses">
+                                0
+                            </td>
+
+                            <td id="history-btc-winrate">
+                                0%
+                            </td>
+
+                            <td id="history-btc-r">
+                                0.00
+                            </td>
+
+                            <td id="history-btc-average">
+                                0.00
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RECORD TRADE
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Record a Trade
+            </h2>
+
+            <div class="form-grid">
+
+                <div class="card">
+
+                    <label for="trade-date">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="trade-date"
+                    >
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-market">
+                        Market
+                    </label>
+
+                    <select id="trade-market">
+
+                        <option value="">
+                            Select market
+                        </option>
+
+                        <option value="Gold">
+                            Gold
+                        </option>
+
+                        <option value="Nasdaq">
+                            Nasdaq
+                        </option>
+
+                        <option value="BTC">
+                            Bitcoin
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-direction">
+                        Direction
+                    </label>
+
+                    <select id="trade-direction">
+
+                        <option value="">
+                            Select direction
+                        </option>
+
+                        <option value="Long">
+                            Long
+                        </option>
+
+                        <option value="Short">
+                            Short
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-result">
+                        Result
+                    </label>
+
+                    <select id="trade-result">
+
+                        <option value="">
+                            Select result
+                        </option>
+
+                        <option value="Win">
+                            Win
+                        </option>
+
+                        <option value="Loss">
+                            Loss
+                        </option>
+
+                        <option value="Break Even">
+                            Break Even
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-r">
+                        Result in R
+                    </label>
+
+                    <input
+                        type="number"
+                        id="trade-r"
+                        step="0.01"
+                        placeholder="Example: 2 or -1"
+                    >
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-session">
+                        Session
+                    </label>
+
+                    <select id="trade-session">
+
+                        <option value="">
+                            Select session
+                        </option>
+
+                        <option value="Asia">
+                            Asia
+                        </option>
+
+                        <option value="London">
+                            London
+                        </option>
+
+                        <option value="New York">
+                            New York
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-setup">
+                        Setup
+                    </label>
+
+                    <input
+                        type="text"
+                        id="trade-setup"
+                        placeholder="Example: Liquidity sweep + MSS"
+                    >
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-entry">
+                        Entry
+                    </label>
+
+                    <input
+                        type="text"
+                        id="trade-entry"
+                        placeholder="Entry price"
+                    >
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-stop">
+                        Stop Loss
+                    </label>
+
+                    <input
+                        type="text"
+                        id="trade-stop"
+                        placeholder="Stop price"
+                    >
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="trade-target">
+                        Target
+                    </label>
+
+                    <input
+                        type="text"
+                        id="trade-target"
+                        placeholder="Target price"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <label for="trade-notes">
+                    Trade Notes
+                </label>
+
+                <textarea
+                    id="trade-notes"
+                    placeholder="Why did you take the trade? What happened? What would you improve?"
+                ></textarea>
+
+            </div>
+
+
+            <div class="button-container">
+
+                <button
+                    id="save-trade-btn"
+                    type="button"
+                    class="btn"
+                >
+                    Save Trade
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TRADE JOURNAL
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Trade Journal
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Date</th>
+                            <th>Market</th>
+                            <th>Direction</th>
+                            <th>Result</th>
+                            <th>R</th>
+                            <th>Session</th>
+                            <th>Setup</th>
+                            <th>Entry</th>
+                            <th>Stop</th>
+                            <th>Target</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="trade-history-body">
+
+                        <tr>
+
+                            <td colspan="10">
+                                No trades recorded yet.
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TRADE QUALITY REVIEW
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Trade Quality Review
+            </h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>
+                        Context
+                    </h3>
+
+                    <textarea
+                        id="review-context"
+                        placeholder="Was the trade aligned with your HTF context?"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Liquidity
+                    </h3>
+
+                    <textarea
+                        id="review-liquidity"
+                        placeholder="Was the liquidity correctly identified?"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Auction
+                    </h3>
+
+                    <textarea
+                        id="review-auction"
+                        placeholder="How did the auction behave?"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Structure
+                    </h3>
+
+                    <textarea
+                        id="review-structure"
+                        placeholder="Was market structure confirmation valid?"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             JOURNAL RULES
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Journal Rules
+            </h2>
+
+            <div class="card">
+
+                <ul>
+
+                    <li>
+                        Record every trade honestly.
+                    </li>
+
+                    <li>
+                        Record the actual R result.
+                    </li>
+
+                    <li>
+                        Separate a good setup from a good outcome.
+                    </li>
+
+                    <li>
+                        Review liquidity, auction and structure.
+                    </li>
+
+                    <li>
+                        Look for repeated execution mistakes.
+                    </li>
+
+                    <li>
+                        Never change historical results to make
+                        performance look better.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             STORAGE STATUS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Journal Storage
+            </h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>
+                        Storage
+                    </h3>
+
+                    <p id="history-storage">
+                        Browser local storage
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Status
+                    </h3>
+
+                    <p id="history-storage-status">
+                        Ready
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Records
+                    </h3>
+
+                    <p id="history-record-count">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Journal
+                    </h3>
+
+                    <p id="history-journal-status">
+                        Active
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Last Saved
+                    </h3>
+
+                    <p id="history-last-saved">
+                        No trades recorded
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/market-data.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="js/signals.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

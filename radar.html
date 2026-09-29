@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Market Drivers Opportunity Radar for Gold, Nasdaq and Bitcoin"
+    >
+
+    <title>Market Drivers | Opportunity Radar</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-brand">
+            <h2>Market Drivers</h2>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Dashboard
+            </a>
+
+            <a href="weekly.html">
+                Weekly Drivers
+            </a>
+
+            <a href="daily.html">
+                Daily Drivers
+            </a>
+
+            <a href="scanner.html">
+                Live Scanner
+            </a>
+
+            <a href="radar.html" class="active">
+                Opportunity Radar
+            </a>
+
+            <a href="signals.html">
+                A+ Signals
+            </a>
+
+            <a href="history.html">
+                Signal History
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="container">
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <h1>Opportunity Radar</h1>
+
+            <p>
+                Monitor markets for conditions that may develop into
+                tradable opportunities. The radar identifies
+                conditions; it does not replace confirmation.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             RADAR STATUS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="system-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Radar Engine</h2>
+
+                        <p>
+                            Scanning Gold, Nasdaq and Bitcoin for
+                            developing market conditions.
+                        </p>
+
+                    </div>
+
+                    <span
+                        id="radar-status"
+                        class="status-badge"
+                    >
+                        Monitoring
+                    </span>
+
+                </div>
+
+
+                <div class="system-grid">
+
+                    <div>
+
+                        <span>Markets</span>
+
+                        <strong id="radar-markets">
+                            3
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Opportunities</span>
+
+                        <strong id="radar-opportunities">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Conditions</span>
+
+                        <strong id="radar-conditions">
+                            Monitoring
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Last Scan</span>
+
+                        <strong id="radar-last-update">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             RADAR OVERVIEW
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Market Opportunity Overview</h2>
+
+                    <p>
+                        Current conditions across the three tracked
+                        markets.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <!-- GOLD -->
+
+                <div class="market-card">
+
+                    <div class="card-header">
+
+                        <h3>Gold</h3>
+
+                        <span
+                            id="radar-gold-status"
+                            class="status-badge"
+                        >
+                            Monitoring
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Price</span>
+
+                        <strong id="radar-gold-price">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Direction</span>
+
+                        <strong id="radar-gold-direction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Structure</span>
+
+                        <strong id="radar-gold-structure">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Auction</span>
+
+                        <strong id="radar-gold-auction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Liquidity</span>
+
+                        <strong id="radar-gold-liquidity">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NASDAQ -->
+
+                <div class="market-card">
+
+                    <div class="card-header">
+
+                        <h3>Nasdaq</h3>
+
+                        <span
+                            id="radar-nasdaq-status"
+                            class="status-badge"
+                        >
+                            Monitoring
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Price</span>
+
+                        <strong id="radar-nasdaq-price">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Direction</span>
+
+                        <strong id="radar-nasdaq-direction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Structure</span>
+
+                        <strong id="radar-nasdaq-structure">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Auction</span>
+
+                        <strong id="radar-nasdaq-auction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Liquidity</span>
+
+                        <strong id="radar-nasdaq-liquidity">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BTC -->
+
+                <div class="market-card">
+
+                    <div class="card-header">
+
+                        <h3>Bitcoin</h3>
+
+                        <span
+                            id="radar-btc-status"
+                            class="status-badge"
+                        >
+                            Monitoring
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Price</span>
+
+                        <strong id="radar-btc-price">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Direction</span>
+
+                        <strong id="radar-btc-direction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Structure</span>
+
+                        <strong id="radar-btc-structure">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Auction</span>
+
+                        <strong id="radar-btc-auction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Liquidity</span>
+
+                        <strong id="radar-btc-liquidity">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             OPPORTUNITY TABLE
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Opportunity Matrix</h2>
+
+                    <p>
+                        Conditions are organized by market and setup
+                        development stage.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Market</th>
+
+                            <th>Direction</th>
+
+                            <th>Structure</th>
+
+                            <th>Auction</th>
+
+                            <th>Liquidity</th>
+
+                            <th>Expansion</th>
+
+                            <th>Setup State</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="opportunity-table-body">
+
+                        <tr>
+
+                            <td>Gold</td>
+
+                            <td id="matrix-gold-direction">
+                                --
+                            </td>
+
+                            <td id="matrix-gold-structure">
+                                --
+                            </td>
+
+                            <td id="matrix-gold-auction">
+                                --
+                            </td>
+
+                            <td id="matrix-gold-liquidity">
+                                --
+                            </td>
+
+                            <td id="matrix-gold-expansion">
+                                Monitoring
+                            </td>
+
+                            <td id="matrix-gold-state">
+                                Waiting
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Nasdaq</td>
+
+                            <td id="matrix-nasdaq-direction">
+                                --
+                            </td>
+
+                            <td id="matrix-nasdaq-structure">
+                                --
+                            </td>
+
+                            <td id="matrix-nasdaq-auction">
+                                --
+                            </td>
+
+                            <td id="matrix-nasdaq-liquidity">
+                                --
+                            </td>
+
+                            <td id="matrix-nasdaq-expansion">
+                                Monitoring
+                            </td>
+
+                            <td id="matrix-nasdaq-state">
+                                Waiting
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Bitcoin</td>
+
+                            <td id="matrix-btc-direction">
+                                --
+                            </td>
+
+                            <td id="matrix-btc-structure">
+                                --
+                            </td>
+
+                            <td id="matrix-btc-auction">
+                                --
+                            </td>
+
+                            <td id="matrix-btc-liquidity">
+                                --
+                            </td>
+
+                            <td id="matrix-btc-expansion">
+                                Monitoring
+                            </td>
+
+                            <td id="matrix-btc-state">
+                                Waiting
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EXPANSION CONDITIONS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Expansion Watch</h2>
+
+                    <p>
+                        Conditions that can precede a larger market
+                        expansion.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <h3>Compression</h3>
+
+                    <p id="radar-compression">
+
+                        Monitoring for tight ranges and reduced
+                        auction movement.
+
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Liquidity</h3>
+
+                    <p id="radar-liquidity-condition">
+
+                        Monitoring for obvious highs, lows and
+                        clustered liquidity.
+
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Market Catalyst</h3>
+
+                    <p id="radar-catalyst">
+
+                        Monitoring macroeconomic and market drivers.
+
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Cross-Market Confirmation</h3>
+
+                    <p id="radar-cross-market">
+
+                        Monitoring relationships between major
+                        markets and macro drivers.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SETUP DEVELOPMENT
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Setup Development</h2>
+
+                    <p>
+                        Follow the progression from market condition
+                        to potential trade confirmation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <h3>1. Context</h3>
+
+                    <p>
+                        Establish higher-timeframe direction,
+                        auction condition and important levels.
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>2. Liquidity</h3>
+
+                    <p>
+                        Identify obvious external and internal
+                        liquidity that price may interact with.
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>3. Reaction</h3>
+
+                    <p>
+                        Watch how price behaves after reaching
+                        important liquidity or auction levels.
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>4. Confirmation</h3>
+
+                    <p>
+                        Wait for lower-timeframe market structure
+                        confirmation before considering an entry.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SCENARIO PLANNER
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Scenario Planner</h2>
+
+                    <p>
+                        Define what must happen before a setup becomes
+                        actionable.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <h3>Gold Scenario</h3>
+
+                    <textarea
+                        id="radar-gold-scenario"
+                        rows="6"
+                        placeholder="Example:
+HTF bias:
+Liquidity target:
+Auction level:
+Confirmation required:
+Invalidation:"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Nasdaq Scenario</h3>
+
+                    <textarea
+                        id="radar-nasdaq-scenario"
+                        rows="6"
+                        placeholder="Example:
+HTF bias:
+Liquidity target:
+Auction level:
+Confirmation required:
+Invalidation:"
+                    ></textarea>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Bitcoin Scenario</h3>
+
+                    <textarea
+                        id="radar-btc-scenario"
+                        rows="6"
+                        placeholder="Example:
+HTF bias:
+Liquidity target:
+Auction level:
+Confirmation required:
+Invalidation:"
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             IMPORTANT RULE
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="market-card">
+
+                <h2>Radar Rule</h2>
+
+                <p>
+                    An opportunity appearing on this radar is
+                    <strong>not an entry signal</strong>.
+                </p>
+
+                <p>
+                    The radar identifies conditions worth watching.
+                    The final trade decision should still require your
+                    planned market-structure, liquidity and auction
+                    confirmation.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DATA STATUS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="system-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Radar Data Status</h2>
+
+                        <p>
+                            Data sources used by the Opportunity Radar.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="system-grid">
+
+                    <div>
+
+                        <span>Gold</span>
+
+                        <strong id="radar-gold-data">
+                            Waiting
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Nasdaq</span>
+
+                        <strong id="radar-nasdaq-data">
+                            Waiting
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Bitcoin</span>
+
+                        <strong id="radar-btc-data">
+                            Waiting
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Engine</span>
+
+                        <strong id="radar-engine-data">
+                            Waiting
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/market-data.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="js/signals.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

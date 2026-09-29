@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Market Drivers A+ Signal Engine for Gold, Nasdaq and Bitcoin"
+    >
+
+    <title>Market Drivers | A+ Signals</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-brand">
+            <h2>Market Drivers</h2>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Dashboard
+            </a>
+
+            <a href="weekly.html">
+                Weekly Drivers
+            </a>
+
+            <a href="daily.html">
+                Daily Drivers
+            </a>
+
+            <a href="scanner.html">
+                Live Scanner
+            </a>
+
+            <a href="radar.html">
+                Opportunity Radar
+            </a>
+
+            <a href="signals.html" class="active">
+                A+ Signals
+            </a>
+
+            <a href="history.html">
+                Signal History
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="container">
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <h1>A+ Signal Engine</h1>
+
+            <p>
+                A structured confirmation system combining market
+                context, auction structure, liquidity, market
+                structure and macro conditions.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             ENGINE STATUS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="system-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Signal Engine Status</h2>
+
+                        <p>
+                            Monitoring all tracked markets for
+                            qualifying conditions.
+                        </p>
+
+                    </div>
+
+                    <span
+                        id="signal-engine-status"
+                        class="status-badge"
+                    >
+                        Monitoring
+                    </span>
+
+                </div>
+
+
+                <div class="system-grid">
+
+                    <div>
+
+                        <span>Markets Scanned</span>
+
+                        <strong id="signals-markets">
+                            3
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Signals Detected</span>
+
+                        <strong id="signals-count">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Engine</span>
+
+                        <strong id="signals-engine">
+                            Active
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Last Update</span>
+
+                        <strong id="signals-last-update">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CURRENT A+ SIGNALS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Current A+ Signals</h2>
+
+                    <p>
+                        Only conditions that satisfy the configured
+                        confirmation rules should appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="aplus-signals">
+
+                <div class="market-card">
+
+                    <h3>No confirmed signals</h3>
+
+                    <p>
+                        The engine is waiting for sufficient market
+                        confirmation.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SIGNAL MATRIX
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Signal Confirmation Matrix</h2>
+
+                    <p>
+                        Each condition contributes to the overall
+                        setup assessment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Market</th>
+
+                            <th>HTF Bias</th>
+
+                            <th>Auction</th>
+
+                            <th>Liquidity</th>
+
+                            <th>Structure</th>
+
+                            <th>Macro</th>
+
+                            <th>Confirmation</th>
+
+                            <th>State</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Gold</td>
+
+                            <td id="signal-gold-bias">
+                                --
+                            </td>
+
+                            <td id="signal-gold-auction">
+                                --
+                            </td>
+
+                            <td id="signal-gold-liquidity">
+                                --
+                            </td>
+
+                            <td id="signal-gold-structure">
+                                --
+                            </td>
+
+                            <td id="signal-gold-macro">
+                                --
+                            </td>
+
+                            <td id="signal-gold-confirmation">
+                                Waiting
+                            </td>
+
+                            <td id="signal-gold-state">
+                                Monitoring
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Nasdaq</td>
+
+                            <td id="signal-nasdaq-bias">
+                                --
+                            </td>
+
+                            <td id="signal-nasdaq-auction">
+                                --
+                            </td>
+
+                            <td id="signal-nasdaq-liquidity">
+                                --
+                            </td>
+
+                            <td id="signal-nasdaq-structure">
+                                --
+                            </td>
+
+                            <td id="signal-nasdaq-macro">
+                                --
+                            </td>
+
+                            <td id="signal-nasdaq-confirmation">
+                                Waiting
+                            </td>
+
+                            <td id="signal-nasdaq-state">
+                                Monitoring
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>Bitcoin</td>
+
+                            <td id="signal-btc-bias">
+                                --
+                            </td>
+
+                            <td id="signal-btc-auction">
+                                --
+                            </td>
+
+                            <td id="signal-btc-liquidity">
+                                --
+                            </td>
+
+                            <td id="signal-btc-structure">
+                                --
+                            </td>
+
+                            <td id="signal-btc-macro">
+                                --
+                            </td>
+
+                            <td id="signal-btc-confirmation">
+                                Waiting
+                            </td>
+
+                            <td id="signal-btc-state">
+                                Monitoring
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             A+ CONDITIONS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>A+ Conditions</h2>
+
+                    <p>
+                        The engine evaluates several layers of
+                        confluence before displaying a signal.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <h3>1. Higher-Timeframe Context</h3>
+
+                    <p>
+                        Weekly and daily structure establish the
+                        broader market environment.
+                    </p>
+
+                    <strong id="condition-htf">
+                        Monitoring
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>2. Auction Location</h3>
+
+                    <p>
+                        Price is evaluated relative to VAH, POC,
+                        VAL and the current auction state.
+                    </p>
+
+                    <strong id="condition-auction">
+                        Monitoring
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>3. Liquidity</h3>
+
+                    <p>
+                        Important highs, lows and liquidity pools
+                        are monitored for potential interaction.
+                    </p>
+
+                    <strong id="condition-liquidity">
+                        Monitoring
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>4. Market Structure</h3>
+
+                    <p>
+                        Breaks, shifts and continuation structures
+                        are evaluated before confirmation.
+                    </p>
+
+                    <strong id="condition-structure">
+                        Monitoring
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>5. Macro Alignment</h3>
+
+                    <p>
+                        Major market drivers are considered to
+                        determine whether the broader environment
+                        supports the scenario.
+                    </p>
+
+                    <strong id="condition-macro">
+                        Monitoring
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>6. Entry Confirmation</h3>
+
+                    <p>
+                        Lower-timeframe confirmation is required
+                        before an opportunity becomes actionable.
+                    </p>
+
+                    <strong id="condition-entry">
+                        Waiting
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SIGNAL DETAIL
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Signal Details</h2>
+
+                    <p>
+                        Detailed information for the latest detected
+                        setup.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <h3>Market</h3>
+
+                    <strong id="signal-detail-market">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Direction</h3>
+
+                    <strong id="signal-detail-direction">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Entry Area</h3>
+
+                    <strong id="signal-detail-entry">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Invalidation</h3>
+
+                    <strong id="signal-detail-invalidation">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Target</h3>
+
+                    <strong id="signal-detail-target">
+                        --
+                    </strong>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Risk / Reward</h3>
+
+                    <strong id="signal-detail-rr">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SCENARIO
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="market-card">
+
+                <h2>Signal Scenario</h2>
+
+                <p id="signal-scenario">
+
+                    No active scenario. The engine will populate
+                    this section when sufficient conditions align.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             USER CONFIRMATION CHECKLIST
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Trader Confirmation Checklist</h2>
+
+                    <p>
+                        Use this checklist before executing any setup.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-card">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="check-htf"
+                    >
+                    Higher-timeframe context is clear
+                </label>
+
+                <br><br>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="check-auction"
+                    >
+                    Auction location supports the scenario
+                </label>
+
+                <br><br>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="check-liquidity"
+                    >
+                    Liquidity interaction has occurred or is clearly
+                    defined
+                </label>
+
+                <br><br>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="check-structure"
+                    >
+                    Market structure confirmation is present
+                </label>
+
+                <br><br>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="check-macro"
+                    >
+                    Macro conditions have been checked
+                </label>
+
+                <br><br>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="check-risk"
+                    >
+                    Risk, invalidation and target are defined
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SIGNAL RULES
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="market-card">
+
+                <h2>A+ Signal Rules</h2>
+
+                <ol>
+
+                    <li>
+                        Do not trade simply because the scanner shows
+                        a directional bias.
+                    </li>
+
+                    <li>
+                        Do not enter solely because price reaches
+                        VAH, POC or VAL.
+                    </li>
+
+                    <li>
+                        Liquidity interaction should be interpreted
+                        together with market structure.
+                    </li>
+
+                    <li>
+                        Macro conditions provide context rather than
+                        guaranteeing direction.
+                    </li>
+
+                    <li>
+                        Wait for the planned lower-timeframe
+                        confirmation.
+                    </li>
+
+                    <li>
+                        Define invalidation before entering.
+                    </li>
+
+                </ol>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DATA STATUS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="system-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Signal Data Status</h2>
+
+                        <p>
+                            Components currently used by the signal
+                            engine.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="system-grid">
+
+                    <div>
+
+                        <span>Market Data</span>
+
+                        <strong id="signal-market-data">
+                            Waiting
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Auction Data</span>
+
+                        <strong id="signal-auction-data">
+                            Waiting
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Liquidity Data</span>
+
+                        <strong id="signal-liquidity-data">
+                            Waiting
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Macro Data</span>
+
+                        <strong id="signal-macro-data">
+                            Waiting
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/market-data.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="js/signals.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

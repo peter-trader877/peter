@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Market Drivers live market scanner for Gold, Nasdaq and Bitcoin"
+    >
+
+    <title>Market Drivers | Live Scanner</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <nav class="navbar">
+
+        <div class="nav-brand">
+            <h2>Market Drivers</h2>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Dashboard
+            </a>
+
+            <a href="weekly.html">
+                Weekly Drivers
+            </a>
+
+            <a href="daily.html">
+                Daily Drivers
+            </a>
+
+            <a href="scanner.html" class="active">
+                Live Scanner
+            </a>
+
+            <a href="radar.html">
+                Opportunity Radar
+            </a>
+
+            <a href="signals.html">
+                A+ Signals
+            </a>
+
+            <a href="history.html">
+                Signal History
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="container">
+
+        <!-- PAGE HEADER -->
+
+        <section class="page-header">
+
+            <h1>Live Market Scanner</h1>
+
+            <p>
+                Monitor live market conditions, auction structure,
+                market structure and liquidity across Gold, Nasdaq
+                and Bitcoin.
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             SCANNER STATUS
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="system-card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>Scanner Engine</h2>
+
+                        <p>
+                            Automated market-condition monitoring.
+                        </p>
+
+                    </div>
+
+                    <span
+                        id="scanner-status"
+                        class="status-badge"
+                    >
+                        Starting...
+                    </span>
+
+                </div>
+
+
+                <div class="system-grid">
+
+                    <div>
+
+                        <span>Engine</span>
+
+                        <strong id="scanner-engine">
+                            Initializing
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Market Data</span>
+
+                        <strong id="scanner-market-data">
+                            Checking
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Historical Data</span>
+
+                        <strong id="scanner-history-data">
+                            Checking
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>Last Scan</span>
+
+                        <strong id="scanner-last-update">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GOLD
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Gold — XAU/USD</h2>
+
+                    <p>
+                        Auction structure and liquidity conditions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <div class="card-header">
+
+                        <h3>Market Condition</h3>
+
+                        <span
+                            id="scanner-gold-status"
+                            class="status-badge"
+                        >
+                            --
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Current Price</span>
+
+                        <strong id="scanner-gold-price">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Change</span>
+
+                        <strong id="scanner-gold-change">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Structure</span>
+
+                        <strong id="scanner-gold-structure">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Direction</span>
+
+                        <strong id="scanner-gold-direction">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Market Profile</h3>
+
+
+                    <div class="data-row">
+
+                        <span>VAH</span>
+
+                        <strong id="scanner-gold-vah">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>POC</span>
+
+                        <strong id="scanner-gold-poc">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>VAL</span>
+
+                        <strong id="scanner-gold-val">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Value Area</span>
+
+                        <strong id="scanner-gold-value">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Auction</h3>
+
+
+                    <div class="data-row">
+
+                        <span>State</span>
+
+                        <strong id="scanner-gold-auction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Position vs POC</span>
+
+                        <strong id="scanner-gold-poc-position">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Value Location</span>
+
+                        <strong id="scanner-gold-value-location">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Liquidity</h3>
+
+
+                    <div class="data-row">
+
+                        <span>Current Zone</span>
+
+                        <strong id="scanner-gold-liquidity">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Previous High</span>
+
+                        <strong id="scanner-gold-high">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Previous Low</span>
+
+                        <strong id="scanner-gold-low">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             NASDAQ
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Nasdaq</h2>
+
+                    <p>
+                        Equity-index auction and structure conditions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <div class="card-header">
+
+                        <h3>Market Condition</h3>
+
+                        <span
+                            id="scanner-nasdaq-status"
+                            class="status-badge"
+                        >
+                            --
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Current Price</span>
+
+                        <strong id="scanner-nasdaq-price">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Change</span>
+
+                        <strong id="scanner-nasdaq-change">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Structure</span>
+
+                        <strong id="scanner-nasdaq-structure">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Direction</span>
+
+                        <strong id="scanner-nasdaq-direction">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Market Profile</h3>
+
+
+                    <div class="data-row">
+
+                        <span>VAH</span>
+
+                        <strong id="scanner-nasdaq-vah">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>POC</span>
+
+                        <strong id="scanner-nasdaq-poc">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>VAL</span>
+
+                        <strong id="scanner-nasdaq-val">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Value Area</span>
+
+                        <strong id="scanner-nasdaq-value">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Auction</h3>
+
+
+                    <div class="data-row">
+
+                        <span>State</span>
+
+                        <strong id="scanner-nasdaq-auction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Position vs POC</span>
+
+                        <strong id="scanner-nasdaq-poc-position">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Value Location</span>
+
+                        <strong id="scanner-nasdaq-value-location">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Liquidity</h3>
+
+
+                    <div class="data-row">
+
+                        <span>Current Zone</span>
+
+                        <strong id="scanner-nasdaq-liquidity">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Previous High</span>
+
+                        <strong id="scanner-nasdaq-high">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Previous Low</span>
+
+                        <strong id="scanner-nasdaq-low">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             BITCOIN
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Bitcoin — BTC/USDT</h2>
+
+                    <p>
+                        Crypto auction, volume and liquidity conditions.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <div class="card-header">
+
+                        <h3>Market Condition</h3>
+
+                        <span
+                            id="scanner-btc-status"
+                            class="status-badge"
+                        >
+                            --
+                        </span>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Current Price</span>
+
+                        <strong id="scanner-btc-price">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>24H Change</span>
+
+                        <strong id="scanner-btc-change">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Structure</span>
+
+                        <strong id="scanner-btc-structure">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Direction</span>
+
+                        <strong id="scanner-btc-direction">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Market Profile</h3>
+
+
+                    <div class="data-row">
+
+                        <span>VAH</span>
+
+                        <strong id="scanner-btc-vah">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>POC</span>
+
+                        <strong id="scanner-btc-poc">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>VAL</span>
+
+                        <strong id="scanner-btc-val">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Profile Type</span>
+
+                        <strong id="scanner-btc-profile-type">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Auction</h3>
+
+
+                    <div class="data-row">
+
+                        <span>State</span>
+
+                        <strong id="scanner-btc-auction">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Position vs POC</span>
+
+                        <strong id="scanner-btc-poc-position">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>Value Location</span>
+
+                        <strong id="scanner-btc-value-location">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Liquidity & Volume</h3>
+
+
+                    <div class="data-row">
+
+                        <span>Liquidity Zone</span>
+
+                        <strong id="scanner-btc-liquidity">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>24H Volume</span>
+
+                        <strong id="scanner-btc-volume">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>24H High</span>
+
+                        <strong id="scanner-btc-high">
+                            --
+                        </strong>
+
+                    </div>
+
+
+                    <div class="data-row">
+
+                        <span>24H Low</span>
+
+                        <strong id="scanner-btc-low">
+                            --
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SCANNER LOGIC
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>Scanner Interpretation</h2>
+
+                    <p>
+                        Conditions detected by the scanner.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="market-grid">
+
+
+                <div class="market-card">
+
+                    <h3>Expansion Watch</h3>
+
+                    <p id="scanner-expansion">
+                        Waiting for market data...
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Balance Watch</h3>
+
+                    <p id="scanner-balance">
+                        Waiting for market data...
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Liquidity Watch</h3>
+
+                    <p id="scanner-liquidity-watch">
+                        Waiting for market data...
+                    </p>
+
+                </div>
+
+
+                <div class="market-card">
+
+                    <h3>Confirmation Required</h3>
+
+                    <p id="scanner-confirmation">
+                        Scanner conditions do not replace your
+                        entry confirmation.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOW TO USE
+        ================================================== -->
+
+        <section class="dashboard-section">
+
+            <div class="market-card">
+
+                <h2>How to Use the Scanner</h2>
+
+                <ol>
+
+                    <li>
+                        Start with the higher-timeframe structure.
+                    </li>
+
+                    <li>
+                        Identify whether price is inside or outside
+                        the current value area.
+                    </li>
+
+                    <li>
+                        Monitor VAH, POC and VAL as auction reference
+                        levels.
+                    </li>
+
+                    <li>
+                        Identify nearby liquidity.
+                    </li>
+
+                    <li>
+                        Watch for balance-to-imbalance transitions.
+                    </li>
+
+                    <li>
+                        Use lower-timeframe market structure and
+                        liquidity confirmation before entering.
+                    </li>
+
+                </ol>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/market-data.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="js/signals.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

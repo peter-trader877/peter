@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daily Drivers | Market Drivers</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Market Drivers
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Dashboard
+            </a>
+
+            <a href="weekly.html">
+                Weekly Drivers
+            </a>
+
+            <a href="daily.html" class="active">
+                Daily Drivers
+            </a>
+
+            <a href="scanner.html">
+                Live Scanner
+            </a>
+
+            <a href="radar.html">
+                Opportunity Radar
+            </a>
+
+            <a href="signals.html">
+                A+ Signals
+            </a>
+
+            <a href="history.html">
+                Signal History
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="container">
+
+        <header class="page-header">
+
+            <h1>
+                Daily Market Drivers
+            </h1>
+
+            <p>
+                Monitor today's macro environment, market structure,
+                auction conditions, liquidity and trading scenarios.
+            </p>
+
+        </header>
+
+
+        <!-- =================================================
+             MARKET ENVIRONMENT
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Today's Market Environment
+            </h2>
+
+            <div class="card-grid">
+
+                <!-- GOLD -->
+
+                <div class="card">
+
+                    <h3>
+                        Gold
+                    </h3>
+
+                    <p>
+                        Price:
+                        <strong id="gold-price">—</strong>
+                    </p>
+
+                    <p>
+                        Change:
+                        <strong id="gold-change">—</strong>
+                    </p>
+
+                    <p>
+                        Direction:
+                        <strong id="gold-direction">—</strong>
+                    </p>
+
+                    <p>
+                        Auction:
+                        <strong id="gold-auction">—</strong>
+                    </p>
+
+                </div>
+
+
+                <!-- NASDAQ -->
+
+                <div class="card">
+
+                    <h3>
+                        Nasdaq
+                    </h3>
+
+                    <p>
+                        Price:
+                        <strong id="nasdaq-price">—</strong>
+                    </p>
+
+                    <p>
+                        Change:
+                        <strong id="nasdaq-change">—</strong>
+                    </p>
+
+                    <p>
+                        Direction:
+                        <strong id="nasdaq-direction">—</strong>
+                    </p>
+
+                    <p>
+                        Auction:
+                        <strong id="nasdaq-auction">—</strong>
+                    </p>
+
+                </div>
+
+
+                <!-- BTC -->
+
+                <div class="card">
+
+                    <h3>
+                        Bitcoin
+                    </h3>
+
+                    <p>
+                        Price:
+                        <strong id="btc-price">—</strong>
+                    </p>
+
+                    <p>
+                        Change:
+                        <strong id="btc-change">—</strong>
+                    </p>
+
+                    <p>
+                        Direction:
+                        <strong id="btc-direction">—</strong>
+                    </p>
+
+                    <p>
+                        Auction:
+                        <strong id="btc-auction-state">—</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LIVE MACRO DRIVERS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Live Macro Drivers
+            </h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>
+                        DXY
+                    </h3>
+
+                    <p id="dxy-price">
+                        —
+                    </p>
+
+                    <span id="dxy-direction">
+                        Waiting for data
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        US10Y
+                    </h3>
+
+                    <p id="us10y-price">
+                        —
+                    </p>
+
+                    <span id="us10y-direction">
+                        Waiting for data
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        US2Y
+                    </h3>
+
+                    <p id="us2y-price">
+                        —
+                    </p>
+
+                    <span id="us2y-direction">
+                        Waiting for data
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        VIX
+                    </h3>
+
+                    <p id="vix-price">
+                        —
+                    </p>
+
+                    <span id="vix-direction">
+                        Waiting for data
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        S&P 500
+                    </h3>
+
+                    <p id="sp500-price">
+                        —
+                    </p>
+
+                    <span id="sp500-direction">
+                        Waiting for data
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Oil
+                    </h3>
+
+                    <p id="oil-price">
+                        —
+                    </p>
+
+                    <span id="oil-direction">
+                        Waiting for data
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ECONOMIC EVENTS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Today's Economic Events
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Time</th>
+                            <th>Event</th>
+                            <th>Currency</th>
+                            <th>Importance</th>
+                            <th>Previous</th>
+                            <th>Forecast</th>
+                            <th>Actual</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="daily-events-body">
+
+                        <tr>
+
+                            <td>
+                                —
+                            </td>
+
+                            <td>
+                                Economic calendar data
+                            </td>
+
+                            <td>
+                                —
+                            </td>
+
+                            <td>
+                                —
+                            </td>
+
+                            <td>
+                                —
+                            </td>
+
+                            <td>
+                                —
+                            </td>
+
+                            <td>
+                                —
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             TRADING SESSION MAP
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Trading Session Map
+            </h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>
+                        Asia
+                    </h3>
+
+                    <p>
+                        Observe overnight range formation,
+                        liquidity creation and early auction development.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        London
+                    </h3>
+
+                    <p>
+                        Monitor Asia high/low liquidity,
+                        London expansion and potential auction repricing.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        New York
+                    </h3>
+
+                    <p>
+                        Monitor US macro releases,
+                        London liquidity and continuation or reversal.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DAILY AUCTION MAP
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Daily Auction Map
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Market</th>
+                            <th>VAH</th>
+                            <th>POC</th>
+                            <th>VAL</th>
+                            <th>Auction State</th>
+                            <th>Liquidity</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Gold
+                            </td>
+
+                            <td id="gold-vah">
+                                —
+                            </td>
+
+                            <td id="gold-poc">
+                                —
+                            </td>
+
+                            <td id="gold-val">
+                                —
+                            </td>
+
+                            <td id="gold-auction-state">
+                                —
+                            </td>
+
+                            <td id="gold-liquidity">
+                                —
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Nasdaq
+                            </td>
+
+                            <td id="nasdaq-vah">
+                                —
+                            </td>
+
+                            <td id="nasdaq-poc">
+                                —
+                            </td>
+
+                            <td id="nasdaq-val">
+                                —
+                            </td>
+
+                            <td id="nasdaq-auction-state">
+                                —
+                            </td>
+
+                            <td id="nasdaq-liquidity">
+                                —
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Bitcoin
+                            </td>
+
+                            <td id="btc-vah">
+                                —
+                            </td>
+
+                            <td id="btc-poc">
+                                —
+                            </td>
+
+                            <td id="btc-val">
+                                —
+                            </td>
+
+                            <td id="btc-auction-state">
+                                —
+                            </td>
+
+                            <td id="btc-liquidity">
+                                —
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DAILY TRADING PLAN
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Daily Trading Plan
+            </h2>
+
+            <div class="form-grid">
+
+                <div class="card">
+
+                    <label for="daily-htf-bias">
+                        HTF Bias
+                    </label>
+
+                    <textarea
+                        id="daily-htf-bias"
+                        placeholder="Write your higher-timeframe bias..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="daily-key-liquidity">
+                        Key Liquidity
+                    </label>
+
+                    <textarea
+                        id="daily-key-liquidity"
+                        placeholder="Record important BSL, SSL, highs, lows and liquidity pools..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="daily-important-levels">
+                        Important Levels
+                    </label>
+
+                    <textarea
+                        id="daily-important-levels"
+                        placeholder="Record VAH, POC, VAL, previous highs/lows and important auction levels..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="daily-session-scenario">
+                        Session Scenario
+                    </label>
+
+                    <textarea
+                        id="daily-session-scenario"
+                        placeholder="Write your main scenario and invalidation..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="button-container">
+
+                <button
+                    id="save-daily-btn"
+                    type="button"
+                    class="btn"
+                >
+                    Save Daily Analysis
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PRE-TRADE CHECKLIST
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Pre-Trade Checklist
+            </h2>
+
+            <div class="checklist">
+
+                <label>
+                    <input type="checkbox">
+                    HTF context identified
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Important liquidity mapped
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Auction levels identified
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Market structure confirmed
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Macro environment checked
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Entry confirmation available
+                </label>
+
+                <label>
+                    <input type="checkbox">
+                    Risk and invalidation defined
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DATA STATUS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Daily Data Status
+            </h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>
+                        Market Data
+                    </h3>
+
+                    <p id="price-data-status">
+                        Waiting...
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Macro Data
+                    </h3>
+
+                    <p id="macro-data-status">
+                        Waiting...
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Last Update
+                    </h3>
+
+                    <p id="last-update">
+                        Waiting...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/market-data.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="js/signals.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

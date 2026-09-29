@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weekly Drivers | Market Drivers</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Market Drivers
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Dashboard
+            </a>
+
+            <a href="weekly.html" class="active">
+                Weekly Drivers
+            </a>
+
+            <a href="daily.html">
+                Daily Drivers
+            </a>
+
+            <a href="scanner.html">
+                Live Scanner
+            </a>
+
+            <a href="radar.html">
+                Opportunity Radar
+            </a>
+
+            <a href="signals.html">
+                A+ Signals
+            </a>
+
+            <a href="history.html">
+                Signal History
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         MAIN
+         ===================================================== -->
+
+    <main class="container">
+
+        <header class="page-header">
+
+            <h1>
+                Weekly Market Drivers
+            </h1>
+
+            <p>
+                Build the higher-timeframe map before the trading week.
+                Focus on macro themes, auction context, liquidity and
+                major economic catalysts.
+            </p>
+
+        </header>
+
+
+        <!-- =================================================
+             WEEKLY MARKET REGIME
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Weekly Market Regime
+            </h2>
+
+            <div class="card-grid">
+
+                <!-- GOLD -->
+
+                <div class="card">
+
+                    <h3>
+                        Gold
+                    </h3>
+
+                    <p>
+                        Live Price:
+                        <strong id="gold-price">—</strong>
+                    </p>
+
+                    <p>
+                        Direction:
+                        <strong id="gold-direction">—</strong>
+                    </p>
+
+                    <p>
+                        Weekly Context:
+                        <strong id="weekly-gold-regime">Monitoring</strong>
+                    </p>
+
+                    <p>
+                        Auction:
+                        <strong id="gold-auction">—</strong>
+                    </p>
+
+                </div>
+
+
+                <!-- NASDAQ -->
+
+                <div class="card">
+
+                    <h3>
+                        Nasdaq
+                    </h3>
+
+                    <p>
+                        Live Price:
+                        <strong id="nasdaq-price">—</strong>
+                    </p>
+
+                    <p>
+                        Direction:
+                        <strong id="nasdaq-direction">—</strong>
+                    </p>
+
+                    <p>
+                        Weekly Context:
+                        <strong id="weekly-nasdaq-regime">Monitoring</strong>
+                    </p>
+
+                    <p>
+                        Auction:
+                        <strong id="nasdaq-auction">—</strong>
+                    </p>
+
+                </div>
+
+
+                <!-- BTC -->
+
+                <div class="card">
+
+                    <h3>
+                        Bitcoin
+                    </h3>
+
+                    <p>
+                        Live Price:
+                        <strong id="btc-price">—</strong>
+                    </p>
+
+                    <p>
+                        Direction:
+                        <strong id="btc-direction">—</strong>
+                    </p>
+
+                    <p>
+                        Weekly Context:
+                        <strong id="weekly-btc-regime">Monitoring</strong>
+                    </p>
+
+                    <p>
+                        Auction:
+                        <strong id="btc-auction-state">—</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WEEKLY MACRO DRIVERS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Weekly Macro Drivers
+            </h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>
+                        DXY
+                    </h3>
+
+                    <p id="dxy-price">
+                        —
+                    </p>
+
+                    <span id="dxy-direction">
+                        Monitoring
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        US10Y
+                    </h3>
+
+                    <p id="us10y-price">
+                        —
+                    </p>
+
+                    <span id="us10y-direction">
+                        Monitoring
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        US2Y
+                    </h3>
+
+                    <p id="us2y-price">
+                        —
+                    </p>
+
+                    <span id="us2y-direction">
+                        Monitoring
+                    </span>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        VIX
+                    </h3>
+
+                    <p id="vix-price">
+                        —
+                    </p>
+
+                    <span id="vix-direction">
+                        Monitoring
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MAJOR WEEKLY EVENTS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Major Weekly Economic Events
+            </h2>
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Event</th>
+                            <th>Currency</th>
+                            <th>Importance</th>
+                            <th>Previous</th>
+                            <th>Forecast</th>
+                            <th>Actual</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="weekly-events-body">
+
+                        <tr>
+
+                            <td>—</td>
+                            <td>—</td>
+
+                            <td>
+                                Weekly economic calendar
+                            </td>
+
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td>—</td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MACRO THEMES
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Weekly Macro Themes
+            </h2>
+
+            <div class="form-grid">
+
+                <div class="card">
+
+                    <label for="weekly-fed-analysis">
+                        Federal Reserve
+                    </label>
+
+                    <textarea
+                        id="weekly-fed-analysis"
+                        placeholder="Record Fed policy, speeches, rate expectations and relevant commentary..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="weekly-inflation-analysis">
+                        Inflation
+                    </label>
+
+                    <textarea
+                        id="weekly-inflation-analysis"
+                        placeholder="Record CPI, PCE, inflation expectations and related developments..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="weekly-employment-analysis">
+                        Employment
+                    </label>
+
+                    <textarea
+                        id="weekly-employment-analysis"
+                        placeholder="Record employment data, labor-market developments and major releases..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="weekly-growth-analysis">
+                        Growth
+                    </label>
+
+                    <textarea
+                        id="weekly-growth-analysis"
+                        placeholder="Record GDP, PMI, consumer activity and growth-related developments..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WEEKLY MARKET ANALYSIS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Weekly Market Analysis
+            </h2>
+
+            <div class="form-grid">
+
+                <div class="card">
+
+                    <label for="weekly-gold-analysis">
+                        Gold Analysis
+                    </label>
+
+                    <textarea
+                        id="weekly-gold-analysis"
+                        placeholder="Weekly Gold bias, auction structure, liquidity and scenarios..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="weekly-nasdaq-analysis">
+                        Nasdaq Analysis
+                    </label>
+
+                    <textarea
+                        id="weekly-nasdaq-analysis"
+                        placeholder="Weekly Nasdaq bias, auction structure, liquidity and scenarios..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="card">
+
+                    <label for="weekly-btc-analysis">
+                        Bitcoin Analysis
+                    </label>
+
+                    <textarea
+                        id="weekly-btc-analysis"
+                        placeholder="Weekly BTC bias, auction structure, liquidity and scenarios..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WEEKLY CHECKLIST
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Weekly Analysis Checklist
+            </h2>
+
+            <div class="checklist">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="weekly-check-htf"
+                    >
+                    HTF market structure mapped
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="weekly-check-auction"
+                    >
+                    Weekly auction structure identified
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="weekly-check-liquidity"
+                    >
+                    Major liquidity mapped
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="weekly-check-macro"
+                    >
+                    Major macro drivers reviewed
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="weekly-check-events"
+                    >
+                    High-impact economic events reviewed
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        id="weekly-check-scenarios"
+                    >
+                    Bullish and bearish scenarios prepared
+                </label>
+
+            </div>
+
+
+            <div class="button-container">
+
+                <button
+                    id="save-weekly-btn"
+                    type="button"
+                    class="btn"
+                >
+                    Save Weekly Analysis
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DATA STATUS
+             ================================================= -->
+
+        <section class="dashboard-section">
+
+            <h2>
+                Weekly Data Status
+            </h2>
+
+            <div class="card-grid">
+
+                <div class="card">
+
+                    <h3>
+                        Market Data
+                    </h3>
+
+                    <p id="price-data-status">
+                        Waiting...
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Macro Data
+                    </h3>
+
+                    <p id="macro-data-status">
+                        Waiting...
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Last Update
+                    </h3>
+
+                    <p id="last-update">
+                        Waiting...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         ===================================================== -->
+
+    <script src="js/market-data.js"></script>
+    <script src="js/scanner.js"></script>
+    <script src="js/signals.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>
